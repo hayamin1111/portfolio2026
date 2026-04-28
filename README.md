@@ -1,3 +1,28 @@
+## ディレクトリ構成
+.
+├── app ルート階層
+│   ├── about 自己紹介
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── globals.css 
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── skills スキル紹介
+│   │   └── page.tsx
+│   └── works 個人制作物
+│       └── page.tsx
+└── components UI階層
+    ├── footer.tsx
+    ├── header.tsx
+    ├── hero.tsx
+    ├── layout
+    │   └── mainLayout.tsx ヘッダー・フッター
+    └── nav.tsx
+    
+    
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
