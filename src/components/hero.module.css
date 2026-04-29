@@ -1,0 +1,12 @@
+.text {
+  margin-block: var(--space-md);
+}
+
+.title {
+  font-size: var(--hero);
+  font-weight: 900;
+}
+
+.subTitle { 
+  font-size: var(--small-heading1);
+}

@@ -1,8 +1,10 @@
-type HeroProps = {
+import styles from '@/components/header.module.css'
+
+interface HeroProps {
   title?: string;
   subTitle?: string;
   imageOn?: boolean;
-};
+}
 
 export default function Hero({
   title = "デフォルトタイトル",
@@ -10,9 +12,9 @@ export default function Hero({
   imageOn = false,
 }: HeroProps) {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{subTitle}</p>
+    <div className={styles.text}>
+      <h1 className={styles.title}>{title}</h1>
+      <p className={styles.subTitle}>{subTitle}</p>
       {imageOn && <figure>[画像]</figure>}
     </div>
   );

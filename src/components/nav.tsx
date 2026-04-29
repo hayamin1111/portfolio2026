@@ -1,9 +1,10 @@
+import styles from '@/components/nav.module.css';
 import Link from "next/link";
 
 export default function Nav() {
   return (
-    <nav>
-      <ul>
+    <nav className={styles.nav}>
+      <ul className={styles.list}>
         <li>
           <Link href="/">Home</Link>
         </li>

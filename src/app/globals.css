@@ -1,8 +1,101 @@
 @import 'modern-normalize';
 
+:root {
+  /* フラウザ幅 */
+  --min-screen-width: 360px;
+  --max-screen-width: 1920px;
+
+  /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
+  --body: clamp(0.875rem, 0.25vw + 0.819rem, 1.125rem); /* 14~18px */
+  --hero: clamp(3.75rem, 3.75vw + 2.906rem, 7.5rem); /* 60~120px */
+  --heading1: clamp(2rem, 2vw + 1.55rem, 4rem); /* 32~64px */
+  --heading2: clamp(1.5rem, 0.25vw + 1.444rem, 1.75rem); /* 24~28px */
+  --heading3: clamp(1.125rem, 0.125vw + 1.097rem, 1.25rem); /* 18~20px */
+  --small-heading1: clamp(0.875rem, 0.75vw + 0.706rem, 1.625rem); /* 14~26px */
+  --small-heading2: clamp(0.75rem, 0.563vw + 0.623rem, 1.313rem); /* 12~24px */
+
+  /* 余白 */
+  --space-xs: clamp(1.25rem, 0.625vw + 1.109rem, 1.875rem); /* 20~30px */
+  --space-sm: calc(var(--space-xs) * 1.5); /* 30~45px */
+  --space-md: calc(var(--space-xs) * 2); /* 40~60px */
+  --space-lg: calc(var(--space-xs) * 3); /* 60~90px */
+  --space-xl: calc(var(--space-xs) * 4); /* 80~120px */
+  --space-jump: clamp(1.25rem, 2.438vw + 0.702rem, 3.688rem); /* 20~60px */
+
+  /* 色（daisyUIのthemeより：https://daisyui.com/ ）  */
+  --color-base-100: #ffffff;
+  --color-base-200: #f2f2f2;
+  --color-base-300: #e6e6e6;
+  --color-base-content: #333333;
+  --color-primary: #45adea; 
+  --color-primary-content: #1d2b34;
+  --color-secondary: #ed1643; 
+  --color-secondary-content: #3e0a15;
+  --color-accent: #ffe500; 
+  --color-accent-content: #3e3800;
+  --color-neutral: #373737; 
+  --color-neutral-content: #d6d6d6;
+  --color-info: #5cb0d6;
+  --color-info-content: #1a2c35;
+  --color-success: #8e1f6a;
+  --color-success-content: #f4e8f0;
+  --color-warning: #ff8c2b;
+  --color-warning-content: #3e240a;
+  --color-error: #ff3356;
+  --color-error-content: #3e0b14;
+
+  --line-height: 1.5;
+}
+
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    色（daisyUIのthemeより：https://daisyui.com/ ）
+    --color-base-100: #001e29;
+    --color-base-200: #002c3a;
+    --color-base-300: #001f2b;
+    --color-base-content: #f8e1bc;
+    --color-primary: #bdff00;
+    --color-primary-content: #588200;
+    --color-secondary: #d9c4f1;
+    --color-secondary-content: #73638a;
+    --color-accent: #666666;
+    --color-accent-content: #fafafa;
+    --color-neutral: #1a4657;
+    --color-neutral-content: #f8e1bc;
+    --color-info: #00bef1;
+    --color-info-content: #004b61;
+    --color-success: #00ce84;
+    --color-success-content: #004b2e;
+    --color-warning: #ffb84d;
+    --color-warning-content: #8e5a00;
+    --color-error: #ff4a6b;
+    --color-error-content: #7f0022;
+  }
+} */
+
+body {
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+  line-height: var(--line-height);
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-size: var(--body);
+}
+
+main {
+  max-width: var(--max-screen-width);
+  margin-inline: auto;
+  padding-inline: var(--space-xs);
+}
+
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.2s;
+
+  &:hover {
+    color: color-mix(in srgb, currentColor, white 50%);
+  }
 }
 
 ul, ol {
@@ -17,46 +110,6 @@ img {
   vertical-align: bottom;
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
-  --body: clamp(1rem, 0.125vw + 0.972rem, 1.125rem); /* 16~18px */
-  --hero: clamp(3.75rem, -1.875vw + 6.047rem, 5.625rem); /* 90~160px */
-  --heading1: clamp(2rem, 2vw + 1.55rem, 4rem); /* 32~64px */
-  --heading2: clamp(1.5rem, 0.25vw + 1.444rem, 1.75rem); /* 24~28px */
-  --heading3: clamp(1.125rem, 0.125vw + 1.097rem, 1.25rem); /* 18~20px */
-  --small-heading1: clamp(0.875rem, 0.75vw + 0.706rem, 1.625rem); /* 14~26px */
-  --small-heading2: clamp(0.75rem, 0.563vw + 0.623rem, 1.313rem); /* 12~24px */
-
-  /* 余白 */
-  --space-xs: clamp(1.25rem, 0.625vw + 1.109rem, 1.875rem); /* 20~30px */
-  --space-sm: calc(var(--space-xs) * 1.5); /* 30~45px */
-  --space-md: calc(var(--space-xs) * 2); /* 40~60px */
-  --space-lg: calc(var(--space-xs) * 3); /* 60~90px */
-  --space-xl: calc(var(--space-xs) * 4); /* 80~120px */
-  --space-jump: clamp(1.25rem, 2.438vw + 0.702rem, 3.688rem); /* 20~60px */
-}
-
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --lineheight: 1.5;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  line-height: var(--lineheight);
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
-  font-size: var(--body);
-}
-
 h1 {
   font-size: var(--heading1);
 }
@@ -66,3 +119,5 @@ h2 {
 h3 {
   font-size: var(--heading3);
 }
+
+
