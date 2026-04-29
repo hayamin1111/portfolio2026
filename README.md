@@ -1,12 +1,19 @@
+## 動作環境
+| 名前      | バージョン |
+|---------|--|
+| Node.js | 22.17.0 |
+| Next.js | 16.2.4 |
+
 ## ディレクトリ構成
+```text
 .
 ├── app ルート階層
 │   ├── about 自己紹介
 │   │   └── page.tsx
 │   ├── favicon.ico
 │   ├── globals.css 
-│   ├── layout.tsx
-│   ├── page.tsx
+│   ├── layout.tsx ルートレイアウト
+│   ├── page.tsx トップページ
 │   ├── skills スキル紹介
 │   │   └── page.tsx
 │   └── works 個人制作物
@@ -15,13 +22,31 @@
     ├── footer.tsx
     ├── header.tsx
     ├── hero.tsx
-    ├── layout
+    ├── layout 
     │   └── mainLayout.tsx ヘッダー・フッター
     └── nav.tsx
-    
-    
+```
+
+## コマンド
+
+### ローカル開発
+```bash
+npm run dev
+```
+
+### ビルド、デプロイ
+```bash
+npm run build
+```
+
+## 使用ライブラリ
+### TypeScript
+| 名前 | 説明                  |
+|---|---------------------|
+|[xxx]| xxxxx|
 
 
+---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

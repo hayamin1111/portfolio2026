@@ -1,5 +1,11 @@
+import Logo from "@/components/logo";
+import Nav from "@/components/nav";
+
 export default function Header() {
   return (
-    <header>ヘッダー</header>
+    <header>
+      <Logo />
+      <Nav />
+    </header>
   )
 }

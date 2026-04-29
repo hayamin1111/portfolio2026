@@ -1,26 +1,68 @@
-@import "tailwindcss";
+@import 'modern-normalize';
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
+  --body: clamp(1rem, 0.125vw + 0.972rem, 1.125rem); /* 16~18px */
+  --hero: clamp(3.75rem, -1.875vw + 6.047rem, 5.625rem); /* 90~160px */
+  --heading1: clamp(2rem, 2vw + 1.55rem, 4rem); /* 32~64px */
+  --heading2: clamp(1.5rem, 0.25vw + 1.444rem, 1.75rem); /* 24~28px */
+  --heading3: clamp(1.125rem, 0.125vw + 1.097rem, 1.25rem); /* 18~20px */
+  --small-heading1: clamp(0.875rem, 0.75vw + 0.706rem, 1.625rem); /* 14~26px */
+  --small-heading2: clamp(0.75rem, 0.563vw + 0.623rem, 1.313rem); /* 12~24px */
+
+  /* 余白 */
+  --space-xs: clamp(1.25rem, 0.625vw + 1.109rem, 1.875rem); /* 20~30px */
+  --space-sm: calc(var(--space-xs) * 1.5); /* 30~45px */
+  --space-md: calc(var(--space-xs) * 2); /* 40~60px */
+  --space-lg: calc(var(--space-xs) * 3); /* 60~90px */
+  --space-xl: calc(var(--space-xs) * 4); /* 80~120px */
+  --space-jump: clamp(1.25rem, 2.438vw + 0.702rem, 3.688rem); /* 20~60px */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --lineheight: 1.5;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: var(--lineheight);
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-size: var(--body);
+}
+
+h1 {
+  font-size: var(--heading1);
+}
+h2 {
+  font-size: var(--heading2);
+}
+h3 {
+  font-size: var(--heading3);
 }

@@ -5,12 +5,11 @@ export default function Home() {
   return (
     <>
       <MainLayout>
-        
-        <main>
-          <Hero />
-        </main>
-
+        <Hero 
+          title="Works" 
+          subTitle="個人制作物" 
+        />
       </MainLayout>
     </>
-  );
+  ); 
 }

@@ -1,15 +1,14 @@
-import Hero from '@/components/hero';
-import MainLayout from '@/components/layout/mainLayout';
+import Hero from "@/components/hero";
+import MainLayout from "@/components/layout/mainLayout";
 
 export default function Home() {
   return (
     <>
       <MainLayout>
-        
-        <main>
-          <Hero />
-        </main>
-
+        <Hero 
+          title="About" 
+          subTitle="自己紹介" 
+        />
       </MainLayout>
     </>
   );
