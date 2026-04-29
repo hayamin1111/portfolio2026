@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: "My new site",
@@ -12,7 +14,15 @@ export default function Layout({ children }: Readonly <{
   return (
     <html lang="ja">
       <body>
-        {children}
+        <div className="wrapper">
+          <Header />
+
+          <main>
+            {children}
+          </main>
+
+          <Footer />
+        </div>
       </body>
     </html>
   );

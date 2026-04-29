@@ -1,5 +1,4 @@
 .footer {
-  padding-inline: var(--space-xs);
   background: var(--color-base-300);
 }
 
@@ -7,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: calc(100% - var(--space-xs) * 2);
   max-width: var(--max-screen-width);
   margin-inline: auto;
 }
