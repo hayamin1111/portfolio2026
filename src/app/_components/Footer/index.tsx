@@ -1,5 +1,5 @@
-import Logo from "@/components/logo";
-import styles from "@/components/footer.module.css";
+import Logo from "@/app/_components/Logo";
+import styles from "./index.module.css";
 
 export default function Footer() {
   return (

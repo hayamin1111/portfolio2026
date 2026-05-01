@@ -1,6 +1,6 @@
-import Logo from "@/components/logo";
-import Nav from '@/components/nav';
-import styles from '@/components/header.module.css';
+import Logo from "@/app/_components/Logo";
+import Nav from "@/app/_components/Nav";
+import styles from "./index.module.css";
 
 export default function Header() {
   return (
