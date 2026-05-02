@@ -5,7 +5,7 @@ interface Card {
   id: string;
   title: string;
   summary: string;
-  tech: string[];
+  techs: string[];
   thumb: string;
   link: string;
 }
@@ -17,7 +17,7 @@ const data: Props = {
       id: "1",
       title: "作ったものタイトル",
       summary: "要約が入ります要約が入ります要約が入ります要約が入ります",
-      tech: ["JS", "EJS", "xxx"],        
+      techs: ["JS", "EJS", "xxx"],        
       thumb: "https://placehold.jp/600x300.png",
       link: "xxx",
     },
@@ -25,7 +25,7 @@ const data: Props = {
       id: "2",
       title: "作ったものタイトル2",
       summary: "要約が入ります要約が入ります要約が入ります要約が入ります2",
-      tech: ["TS", "PUG", "xxx"],        
+      techs: ["TS", "PUG", "xxx"],        
       thumb: "https://placehold.jp/700x300.png",
       link: "xxx",
     },
@@ -46,7 +46,7 @@ export default function Card() {
                 </div>
                 <ul>
                   {
-                    card.tech.map(el => (
+                    card.techs.map(el => (
                       <li key={el}>{el}</li>
                     ))
                   }

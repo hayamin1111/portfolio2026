@@ -1,7 +1,7 @@
 import Hero from "@/app/_components/Hero";
 import Card from "@/app/_components/Card";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Hero 
