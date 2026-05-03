@@ -1,61 +1,46 @@
 import styles from "./index.module.css";
 import Link from "next/link";
+import Image from "next/image";
+import type { Work } from "@/app/_types/works";
 
-interface Card {
-  id: string;
-  title: string;
-  summary: string;
-  techs: string[];
-  thumb: string;
-  link: string;
-}
-interface Props { contents: Card[], }
-
-const data: Props = {
-  contents: [
-    {
-      id: "1",
-      title: "作ったものタイトル",
-      summary: "要約が入ります要約が入ります要約が入ります要約が入ります",
-      techs: ["JS", "EJS", "xxx"],        
-      thumb: "https://placehold.jp/600x300.png",
-      link: "xxx",
-    },
-    {
-      id: "2",
-      title: "作ったものタイトル2",
-      summary: "要約が入ります要約が入ります要約が入ります要約が入ります2",
-      techs: ["TS", "PUG", "xxx"],        
-      thumb: "https://placehold.jp/700x300.png",
-      link: "xxx",
-    },
-  ]
+interface CardProps { 
+  contents: Work[];
 }
 
-export default function Card() {
+export default function Card({ contents }: CardProps) {
   return (
     <>
-      <div className={styles.card}>
-        {
-          data.contents.map(card => (
-            <article key={card.id} className={styles.article}>
-              <Link href={card.link}>
-                <h2 className={styles.title}>{card.title}</h2>
-                <div className={styles.summary}>
-                  <p>{card.summary}</p>
-                </div>
-                <ul>
-                  {
-                    card.techs.map(el => (
-                      <li key={el}>{el}</li>
-                    ))
-                  }
-                </ul>
-              </Link>
-            </article>
-          ))
-        }
-      </div>
+      {
+        // contentsがなければarticleは表示させない
+        contents.length === 0 ? (
+          <p className={styles.none}>記事が登録されていません。</p>
+        ) : (
+          <div className={styles.card}>
+            {
+              contents.map(card => (
+                <article key={card.id} className={styles.article}>
+                  <Link href={card.link}>
+                    <h2 className={styles.title}>{card.title}</h2>
+                    <div className={styles.summary}>
+                      <p>{card.summary}</p>
+                    </div>
+                    <ul>
+                      {
+                        // techsは重複しないためkeyはelでok
+                        card.techs.map(el => (
+                          <li key={el}>{el}</li>
+                        ))
+                      }
+                    </ul>
+                    <Image 
+                      src={card.thumb} alt={card.alt} width={300} height={200} />
+                  </Link>
+                </article>
+              ))
+            }
+          </div>
+        )
+      }
     </>
   )
 }

@@ -9,6 +9,7 @@ export default function Home() {
         text = "マークアップを軸に、更新性・拡張性を意識したサイト構築を行っています。"
         imageOn
       />
+      
     </>
   );
 }
