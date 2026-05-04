@@ -21,14 +21,6 @@ export default function Hero({
       <p className={styles.subTitle}>{subTitle}</p>
       <p className={styles.text}>{text}</p>
       {imageOn && <figure>[画像]</figure>}
-      <Image
-        src="/logo.svg"
-        alt="xxx"
-        className="xxx"
-        width={300}
-        height={200}
-        priority
-      />
     </div>
   );
 }

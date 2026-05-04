@@ -1,0 +1,14 @@
+.button {
+  display: block;
+  width: 300px;
+  padding: 20px 40px 20px 30px;
+  background: url("/arrow-right.svg") no-repeat right 20px center / 1em var(--color-primary);
+  color: var(--color-primary-content);
+  font-weight: 900;
+  transition: background-color .3s, color .3s;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--color-primary), white 20%);
+  }
+}

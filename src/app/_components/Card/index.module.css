@@ -1,4 +1,47 @@
-.card {
+.cards {
   display: grid;
+  background-color: var(--color-base-100);
+  
+}
+
+.card {
+
+}
+
+.content {
+  
+}
+
+.link {
+
+}
+
+.title {
+  font-size: var(--heading3);
+}
+
+.discription {
+
+}
+
+.summary {
+
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  padding: 3px 5px;
+  background-color: var(--color-base-300);
+  font-size: var(--text-xs);
+  line-height: var(--line-height-xs);
+  border-radius: var(--radius-tag);
+}
+
+.image {
   
 }

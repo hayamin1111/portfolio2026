@@ -15,25 +15,29 @@ export default function Card({ contents }: CardProps) {
         contents.length === 0 ? (
           <p className={styles.none}>記事が登録されていません。</p>
         ) : (
-          <div className={styles.card}>
+          <div className={styles.cards}>
             {
               contents.map(card => (
-                <article key={card.id} className={styles.article}>
-                  <Link href={card.link}>
-                    <h2 className={styles.title}>{card.title}</h2>
-                    <div className={styles.summary}>
-                      <p>{card.summary}</p>
-                    </div>
-                    <ul>
-                      {
-                        // techsは重複しないためkeyはelでok
-                        card.techs.map(el => (
-                          <li key={el}>{el}</li>
-                        ))
-                      }
-                    </ul>
-                    <Image 
-                      src={card.thumb} alt={card.alt} width={300} height={200} />
+                <article key={card.id} className={styles.card}>
+                  <Link href={card.link} className={styles.link}>
+                    <dl className={styles.content}>
+                      <dt className={styles.title}>{card.title}</dt>
+                      <dd className={styles.discription}>
+                        <p className={styles.summary}>{card.summary}</p>
+                        <ul className={styles.tags}>
+                          {
+                            // techsは重複しないためkeyはel
+                            card.techs.map(el => (
+                              <li key={el} className={styles.tag}>{el}</li>
+                            ))
+                          }
+                        </ul>
+                      </dd>
+                      <dd className={styles.image}>
+                        <Image 
+                          src={card.thumb} alt={card.alt} width={600} height={300}/>
+                      </dd>
+                    </dl>
                   </Link>
                 </article>
               ))

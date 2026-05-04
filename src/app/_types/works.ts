@@ -8,6 +8,6 @@ export interface Work {
   link: string;
 }
 
-export interface WorksResponse {
+export interface Works {
   contents: Work[];
 }

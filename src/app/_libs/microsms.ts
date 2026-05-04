@@ -1,6 +1,6 @@
-import type { WorksResponse } from "@/app/_types/works";
+import type { Works } from "@/app/_types/works";
 
-export const data: WorksResponse = {
+export const data: Works = {
   // 仮データ
   contents: [
     {
@@ -17,7 +17,7 @@ export const data: WorksResponse = {
       title: "作ったものタイトル2",
       summary: "要約が入ります要約が入ります要約が入ります要約が入ります2",
       techs: ["TS", "PUG", "xxx"],        
-      thumb: "https://placehold.jp/700x300.png",
+      thumb: "https://placehold.jp/600x300.png",
       alt: "画像説明文",
       link: "xxx",
     },
