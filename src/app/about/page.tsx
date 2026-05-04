@@ -5,7 +5,8 @@ export default function Page() {
     <>
       <Hero 
         title="About" 
-        subTitle="自己紹介" 
+        subTitle="自己紹介"
+         
       />
     </>
   );

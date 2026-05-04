@@ -5,7 +5,7 @@ export interface Work {
   techs: string[];
   thumb: string;
   alt: string;
-  link: string;
+  link: string | null;
 }
 
 export interface Works {

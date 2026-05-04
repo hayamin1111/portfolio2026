@@ -10,7 +10,7 @@ export const data: Works = {
       techs: ["JS", "EJS", "xxx"],        
       thumb: "https://placehold.jp/600x300.png",
       alt: "画像説明文",
-      link: "xxx",
+      link: "",
     },
     {
       id: "2",
@@ -20,6 +20,15 @@ export const data: Works = {
       thumb: "https://placehold.jp/600x300.png",
       alt: "画像説明文",
       link: "xxx",
+    },
+    {
+      id: "3",
+      title: "作ったものタイトル3",
+      summary: "要約が入ります要約が入ります要約が入ります要約が入ります3要約が入ります要約が入ります要約が入ります要約が入ります3",
+      techs: ["JS", "Twig", "yyyyyyyy"],        
+      thumb: "https://placehold.jp/600x300.png",
+      alt: "画像説明文",
+      link: null,
     },
   ]
 };

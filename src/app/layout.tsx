@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Hayakawa portfolio 2026",
 };
 
-export default function Layout({ children }: Readonly <{
+export default function RootLayout({ children }: Readonly <{
   children: React.ReactNode;
 }>) {
   return (
