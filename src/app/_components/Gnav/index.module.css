@@ -1,0 +1,28 @@
+.gnav {
+  filter: invert(100%);
+  mix-blend-mode: exclusion;
+  &.open {
+    opacity: 0.2;
+  }
+}
+.description {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+
+}
+
+.nav {
+  margin-block: var(--space-xs);
+}
+.list {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: var(--space-xs);
+}

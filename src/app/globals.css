@@ -144,4 +144,10 @@ h3 {
   line-height: var(--line-height-sm);
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
 

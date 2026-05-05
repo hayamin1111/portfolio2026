@@ -49,6 +49,7 @@ export default function Page() {
               height={data.image.height}
               alt={data.image.alt}
               className={styles.image}
+              loading="eager"
             />
             <dl>
               <dt className={styles.name}>{data.name}</dt>
