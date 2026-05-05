@@ -4,5 +4,5 @@
   align-items: center;
   max-width: var(--max-screen-width);
   width: calc(100% - var(--space-xs) * 2);
-  margin-inline: auto;
+  margin: var(--space-xs) auto;
 }

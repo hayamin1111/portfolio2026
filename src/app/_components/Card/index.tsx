@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Work } from "@/app/_types/works";
 
-interface CardProps { 
+interface Props { 
   contents: Work[];
 }
 
-export default function Card({ contents }: CardProps) {
+export default function Card({ contents }: Props) {
   return (
     <>
       {

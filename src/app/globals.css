@@ -6,14 +6,23 @@
   --max-screen-width: 1920px;
 
   /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
-  --body: clamp(0.875rem, 0.25vw + 0.819rem, 1.125rem); /* 14~18px */
+
+  /* --- 見出し --- */
   --hero: clamp(3.75rem, 3.75vw + 2.906rem, 7.5rem); /* 60~120px */
   --heading1: clamp(2rem, 2vw + 1.55rem, 4rem); /* 32~64px */
   --heading2: clamp(1.5rem, 0.25vw + 1.444rem, 1.75rem); /* 24~28px */
   --heading3: clamp(1.125rem, 0.125vw + 1.097rem, 1.25rem); /* 18~20px */
+
+  /* --- 小見出し --- */
   --small-heading1: clamp(0.875rem, 0.75vw + 0.706rem, 1.625rem); /* 14~26px */
   --small-heading2: clamp(0.75rem, 0.563vw + 0.623rem, 1.313rem); /* 12~24px */
-  --text-xs: clamp(0.625rem, 0.513vw + 0.51rem, 1.125rem); /* 10~18px */
+
+  /* --- 本文 --- */
+  --text-xs: clamp(0.625rem, 0.256vw + 0.567rem, 0.875rem); /* 10~14px */
+  --text-sm: calc(var(--text-xs) * 1.2); /* 12~16.8px */
+  --text-md: calc(var(--text-xs) * 1.4); /* 14~19.6px */
+  --text-lg: calc(var(--text-xs) * 1.6); /* 16~22.4px */
+  --text-xl: calc(var(--text-xs) * 1.8); /* 18~25.2px */
 
   /* 余白 */
   --space-xs: clamp(1.25rem, 0.625vw + 1.109rem, 1.875rem); /* 20~30px */
@@ -92,8 +101,13 @@ body {
   color: var(--color-base-content);
   line-height: var(--line-height-md);
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
-  font-size: var(--body);
+  font-size: var(--text-md);
   word-break: break-all;
+
+  &.is-fixed {
+    position: fixed;
+    width: 100%;
+  }
 }
 
 /* 直下にheader・main・footerの3要素 */
@@ -114,8 +128,10 @@ a {
   color: inherit;
   transition: color .3s;
 
-  &:hover {
-    color: color-mix(in srgb, currentColor, white 20%);
+  @media(hover: hover) and (pointer: fine) {
+    &:hover {
+      color: color-mix(in srgb, currentColor, black 20%);
+    }
   }
 }
 
