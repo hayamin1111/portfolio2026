@@ -7,22 +7,19 @@ export default function Page() {
     <>
       <Hero 
         title="Works" 
-        subTitle="個人制作" 
+        subTitle="個人制作を見る" 
       />
       <section>
         <h2>Webサイト</h2>
         <Card contents={data.contents}/>
       </section>
       <section>
-        <h2>API連携</h2>
+        <h2>アプリケーション</h2>
         <Card contents={data.contents}/>
       </section>
       <section>
         <h2>試作</h2>
-        <section>
-          <h3>UI</h3>
-          <Card contents={data.contents}/>
-        </section>
+        <Card contents={data.contents}/>
       </section>
     </>
   ); 

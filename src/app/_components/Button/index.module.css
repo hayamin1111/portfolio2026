@@ -1,14 +1,21 @@
 .button {
-  display: block;
-  width: 300px;
-  padding: 20px 40px 20px 30px;
-  background: url("/arrow-right.svg") no-repeat right 20px center / 1em var(--color-primary);
-  color: var(--color-primary-content);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 320px);
+  min-height: 64px;
+  padding: 18px 24px;
+  background: url("/arrow-right.svg") no-repeat right 22px center / 1em;
+  color: var(--color-base-content);
   font-weight: 900;
-  transition: background-color .3s, color .3s;
-  border-radius: 10px;
+  line-height: var(--line-height-sm);
+  border: var(--border) solid var(--color-base-content);
+  border-radius: var(--radius-box);
+  transition: background-color .3s, color .3s, transform .3s;
 
   &:hover {
-    background-color: color-mix(in srgb, var(--color-primary), white 20%);
+    background-color: var(--color-base-content);
+    color: var(--color-base-100);
+    transform: translateY(-2px);
   }
 }

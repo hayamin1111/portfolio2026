@@ -1,12 +1,14 @@
 .footer {
-  background: var(--color-base-300);
+  /* background: var(--color-base-300); */
 }
 
 .copyright {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  
   width: calc(100% - var(--space-xs) * 2);
   max-width: var(--max-screen-width);
   margin-inline: auto;
+  text-align: right;
 }

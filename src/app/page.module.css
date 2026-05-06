@@ -3,4 +3,5 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--space-xs);
+  margin-block: var(--space-md) var(--space-xl);
 }

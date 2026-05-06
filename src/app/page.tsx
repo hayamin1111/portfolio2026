@@ -12,7 +12,7 @@ export default function Home() {
       />
       <div className={styles.buttons}>
         <Button href="/about">
-          HYKWについて知る
+          Hayakawaを知る
         </Button>
         <Button href="/works">
           個人制作を見る

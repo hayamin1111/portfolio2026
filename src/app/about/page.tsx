@@ -35,14 +35,14 @@ export default function Page() {
     <>
       <Hero 
         title="About" 
-        subTitle="自己紹介"
+        subTitle="Hayakawaを知る"
       />
 
       {
         data === null ? (
           <p className={styles.none}>プロフィールが登録されていません。</p>
         ) : (
-          <div>            
+          <div className={styles.profileBlock}>            
             <Image
               src={data.image.url}
               width={data.image.width}
@@ -51,7 +51,7 @@ export default function Page() {
               className={styles.image}
               loading="eager"
             />
-            <dl>
+            <dl className={styles.body}>
               <dt className={styles.name}>{data.name}</dt>
               <dd className={styles.occupation}>{data.occupation}</dd>
               <dd className={styles.profile}>{data.profile}</dd>

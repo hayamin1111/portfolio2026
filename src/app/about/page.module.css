@@ -1,15 +1,47 @@
-.image {
+.profileBlock {
+  display: grid;
+  grid-template-columns: minmax(240px, 420px) 1fr;
+  gap: var(--space-md);
+  align-items: end;
+  margin-block: var(--space-md) var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: var(--border) solid var(--color-base-content);
+}
 
+.image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.body {
+  display: grid;
+  gap: var(--space-xs);
+  margin: 0;
 }
 
 .name {
-
+  font-size: var(--heading1);
+  font-weight: 900;
+  line-height: .95;
+  text-transform: uppercase;
 }
 
 .occupation {
-
+  margin: 0;
+  font-weight: 700;
 }
 
 .profile {
-  
+  max-width: 48rem;
+  margin: 0;
+  color: color-mix(in srgb, var(--color-base-content), white 28%);
+  line-height: var(--line-height-lg);
+}
+
+@media (width <= 768px) {
+  .profileBlock {
+    grid-template-columns: 1fr;
+  }
 }
