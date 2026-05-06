@@ -1,0 +1,37 @@
+.hero {
+  display: grid;
+  align-content: center;
+  min-height: 70svh;
+  padding-block: var(--space-lg);
+  border-bottom: var(--border) solid var(--color-base-300);
+}
+
+.label {
+  margin: 0 0 var(--space-xs);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.title {
+  /* max-width: 12ch; */
+  /* min-height: 2.2em; */
+  margin: 0;
+  font-size: var(--hero);
+  font-weight: 900;
+  line-height: .9;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.char {
+  display: inline-block;
+}
+
+.text {
+  max-width: 42rem;
+  margin: var(--space-xs) 0 0;
+  color: color-mix(in srgb, var(--color-base-content), white 32%);
+  font-size: var(--text-lg);
+  line-height: var(--line-height-lg);
+}
