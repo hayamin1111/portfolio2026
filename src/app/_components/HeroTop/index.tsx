@@ -64,83 +64,71 @@ import styles from "./index.module.css";
 //   },
 // ];
 
-const STEP_DELAY = 180;
+// const phases = [
+//   ["01001000", "01100001", "01111001"],
+//   ["48", "61","79"],
+//   ["h", "a", "y"]
+// ]
 
-const phases = [
-  ["01001000", "01100001", "01111001"],
-  ["48", "61","79"],
-  ["h", "a", "y"]
-]
+type Chars = [binary: string, hex: string, text: string];
+
+const chars: Chars[] = [
+  ["01001000", "48", "h"],
+  ["01100001", "61", "a"],
+  ["01111001", "79", "y"],
+  ["01100001", "61", "a"],
+  ["01101011", "6b", "k"],
+  ["01100001", "61", "a"],
+  ["01110111", "77", "w"],
+  ["01100001", "61", "a"],
+];
 
 export default function HeroTop() {
-  // const [phase, setPhase] = useState(0);
-  // const current = phases[phase];
+  const [charPhases, setCharPhases] = useState(
+    // [0, 0, 0, 0...]になる
+    // chars.map(() => 0)
+    // charsの配列の数だけ0のある配列が返される[0, 0, 0, 0...]
+    chars.map(() => 0)
+  );
 
-  // useEffect(() => {
-  //   if (phase >= phases.length - 1) return;
-
-  //   const timerId = window.setTimeout(() => {
-  //     setPhase((prev) => prev + 1);
-  //   }, 1200);
-
-  //   return () => {
-  //     window.clearTimeout(timerId);
-  //   };
-  // }, [phase]);
-
-  const [phase, setPhase] = useState(0);
-  const current = phases[phase];
-  console.log("current"+current[0])
-
-  // phaseが変更したら次のphaseが開始する
+  // 時間差でアニメーション実行のため副作用（setTimeout）を扱うのでuseEffect使用
   useEffect(() => {
-    // phaseが最後まで回ったら終了
-    if (phase >= phases.length - 1) return;
+    // 全文字を回す
+    chars.forEach((char, charsIndex) => {
+      // 各文字を回す
+      char.forEach((c, charIndex) => {
+        console.log(c[0]);
 
-    const timerId = window.setTimeout(() => {
-      setPhase((prev) => prev + 1);
-    }, 1000);
+      })
+    })
+
+
+
+    // const timerId = () => {
+    //   window.setTimeout(() => {
+
+    //   }, 1000);
+
+    // }
 
     return () => {
-      window.clearTimeout(timerId);
-    };
-  }, [phase]);
+      // window.clearTimeout(timerId)
+    }
+
+
+  }, [])
 
   return (
     <section className={styles.hero}>
-      {/* <p className={styles.label}>{current.label}</p>
-      <h1 className={styles.title}>{current.value}</h1>
-      <AnimatePresence mode="wait">
-        <motion.h1
-          key={phase}
-          className={styles.title}
-          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -24, filter: "blur(8px)" }}
-          transition={{ duration: 0.5, ease: [0.87, 0.05, 0.02, 0.97] }}
-        >
-          {current.value}
-        </motion.h1>
-      </AnimatePresence>
-      <p className={styles.title}>PORTFOLIO</p> */}
-
-      {/* <AnimatePresence mode="wait">
-        <motion.span
-        >
-          {current.value}
-        </motion.span>
-      </AnimatePresence> */}
       <h1>
-      {
-        current.map((el, index) => (
-          <span className={styles.char} key={`${el}-${index}`}>{el}</span>
-        ))
-      }
+        {/* 0 なら binary、1 なら hex、2 なら text */}
+        {chars.map((char, index) => (
+          <span className={styles.char} key={index}>
+            {char[charPhases[index]]}
+          </span>
+        ))}
       </h1>
 
-      <span>
-        {current}
-      </span>
 
       <p className={styles.text}>
         マークアップを軸に、更新性・拡張性を意識したサイト構築を行っています。
