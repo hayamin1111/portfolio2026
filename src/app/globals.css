@@ -139,6 +139,10 @@ a {
   }
 }
 
+em {
+  font-style: normal;
+}
+
 ul, ol {
   list-style: none;
   padding: 0;
