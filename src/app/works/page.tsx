@@ -1,6 +1,6 @@
 import Hero from "@/app/_components/Hero";
 import Card from "@/app/_components/Card";
-import {data} from "@/app/_libs/microsms";
+import {data} from "@/app/_libs/microcms";
 
 export default function Page() {
   return (
