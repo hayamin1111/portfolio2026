@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 
 type Chars = [binary: string, hex: string, text: string];
 
-const title = "hayakawa";
+const title = "hayakawa\nportfolio";
 
 const chars: Chars[] = title.split("").map((char) => {
   const code = char.charCodeAt(0);
@@ -25,6 +25,7 @@ export default function HeroTop() {
     // charsの配列の数だけ0のある配列が返される[0, 0, 0, 0...]
     chars.map(() => 0)
   );
+  const [showLead, setShowLead] = useState(false);
 
   // 時間差でアニメーション実行のため副作用（setTimeout）を扱うのでuseEffect使用
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function HeroTop() {
             return next;
           });
         // 文字ごとに 120ms ずらし、フェーズ1は +900ms、フェーズ2は +1800ms ずらす
-        }, charIndex * 140 + nextPhase * 800);
+        }, charIndex * 140 + nextPhase * 600);
         timerIds.push(timerId);
       });
     });
@@ -63,16 +64,32 @@ export default function HeroTop() {
         {chars.map((char, index) => {
           // どのphase（文字）を表示するかを取得
           const currentPhase = charPhases[index];
+          
+          //リードの表示用
+          const isLastChar = index === chars.length - 1; //全文字が最終phaseになったか
+          const isFinalPhase = currentPhase === 2; //最後の文字か
+
+          // 改行
+          if (char[2] === "\n") {
+            return <br key={index} />;
+          }
+
           return (
             <span className={styles.char} key={index}>
               {/* wait: 古い要素のexitが終わってから新しい要素をenterさせる */}
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentPhase}
-                  initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
+                  initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -12, filter: "blur(6px)" }}
-                  transition={{ duration: 0.35, ease: [0.87, 0.05, 0.02, 0.97] }}
+                  exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
+                  transition={{ duration: 0.1, ease: [0.87, 0.05, 0.02, 0.97] }}
+                  onAnimationComplete={() => {
+                    // リード表示
+                    if (isLastChar && isFinalPhase) {
+                      setShowLead(true);
+                    }
+                  }}
                 >
                   {char[currentPhase]}
                 </motion.span>
@@ -81,11 +98,17 @@ export default function HeroTop() {
           );
         })}
       </h1>
-
-       {/* <motion.p className={styles.text}>
-        <em className={styles.emphasisText}>マークアップエンジニア（フロントエンド領域対応）</em><br/>
-         マークアップを軸に、更新性・拡張性を意識したWebサイト構築・フロントエンド実装を行っています。
-       </motion.p> */}
+      {showLead && (
+        <motion.p
+          className={styles.text}
+          initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.6, ease: [0.87, 0.05, 0.02, 0.97] }}
+        >
+          <em className={styles.textEmphasis}>マークアップエンジニア（フロントエンド領域対応）</em><br/>
+          マークアップを軸に、更新性・拡張性を意識したWebサイト構築・フロントエンド実装を行っています。
+        </motion.p>
+      )}
     </section>
   );
 }

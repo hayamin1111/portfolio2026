@@ -1,9 +1,9 @@
 .hero {
-  display: grid;
-  align-content: center;
+  /* display: grid;
+  align-content: center; */
   min-height: 70svh;
   padding-block: var(--space-lg);
-  border-bottom: var(--border) solid var(--color-base-300);
+  /* border-bottom: var(--border) solid var(--color-base-300); */
 }
 
 .label {
@@ -15,12 +15,12 @@
 
 .title {
   /* max-width: 12ch; */
-  min-height: 2.2em;
+  /* min-height: 3em; */
   margin: 0;
-  font-size: 1.5em;
+  font-size: var(--hero);
   font-weight: 900;
   line-height: .9;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   text-transform: uppercase;
 }
 
@@ -36,7 +36,7 @@
   line-height: var(--line-height-lg);
 }
 
-.emphasisText {
+.textEmphasis {
   font-weight: 600;
   font-size: var(--text-xl);
 }
