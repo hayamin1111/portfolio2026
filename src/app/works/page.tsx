@@ -1,8 +1,15 @@
 import Hero from "@/app/_components/Hero";
 import Card from "@/app/_components/Card";
-import {data} from "@/app/_libs/microcms";
+import {getWorksData} from "@/app/_libs/microcms";
 
-export default function Page() {
+export default async function Page() {
+  const worksData = await getWorksData();
+
+  //section分け
+  const webWorks = worksData.contents.filter((work) => work.category.includes("web"));
+  const appWorks = worksData.contents.filter((work) => work.category.includes("app"));
+  const prototypeWorks = worksData.contents.filter((work) => work.category.includes("prototype"));
+
   return (
     <>
       <Hero 
@@ -11,15 +18,17 @@ export default function Page() {
       />
       <section>
         <h2>Webサイト</h2>
-        <Card contents={data.contents}/>
+        <Card contents={webWorks} />
       </section>
+
       <section>
         <h2>アプリケーション</h2>
-        <Card contents={data.contents}/>
+        <Card contents={appWorks} />
       </section>
+
       <section>
         <h2>試作</h2>
-        <Card contents={data.contents}/>
+        <Card contents={prototypeWorks} />
       </section>
     </>
   ); 

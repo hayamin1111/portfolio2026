@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**', // 全てのパスを許可
       },
+      {
+        protocol: 'https',
+        hostname: 'images.microcms-assets.io', // 許可するドメイン
+      },
     ],
   }
 };

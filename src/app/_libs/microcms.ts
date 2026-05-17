@@ -1,41 +1,27 @@
 import { createClient } from "microcms-js-sdk";
+import type { MicroCMSQueries } from "microcms-js-sdk";
+import type { Work } from "@/app/_types/works";
 
-export const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN || "",
-  apiKey: process.env.MICROCMS_API_KEY || "",
+// 環境変数チェック
+if(!process.env.MICROCMS_SERVICE_DOMAIN) {
+  throw new Error("MICROCMS_SERVICE_DOMAIN is not set");
+}
+if(!process.env.MICROCMS_API_KEY) {
+  throw new Error("MICROCMS_API_KEY is not set");
+}
+
+// クライアント作成
+const client = createClient({
+  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
+  apiKey: process.env.MICROCMS_API_KEY,
 });
 
-// import type { Works } from "@/app/_types/works";
-
-// export const data: Works = {
-//   // 仮データ
-//   contents: [
-//     {
-//       id: "1",
-//       title: "作ったものタイトル",
-//       summary: "要約が入ります要約が入ります要約が入ります要約が入ります",
-//       techs: ["JS", "EJS", "xxx"],        
-//       thumb: "https://placehold.jp/600x300.png",
-//       alt: "画像説明文",
-//       link: "",
-//     },
-//     {
-//       id: "2",
-//       title: "作ったものタイトル2",
-//       summary: "要約が入ります要約が入ります要約が入ります要約が入ります2",
-//       techs: ["TS", "PUG", "xxx"],        
-//       thumb: "https://placehold.jp/600x300.png",
-//       alt: "画像説明文",
-//       link: "xxx",
-//     },
-//     {
-//       id: "3",
-//       title: "作ったものタイトル3",
-//       summary: "要約が入ります要約が入ります要約が入ります要約が入ります3要約が入ります要約が入ります要約が入ります要約が入ります3",
-//       techs: ["JS", "Twig", "yyyyyyyy"],        
-//       thumb: "https://placehold.jp/600x300.png",
-//       alt: "画像説明文",
-//       link: null,
-//     },
-//   ]
-// };
+// データ取得
+export const getWorksData = async (queries?: MicroCMSQueries) => {
+  //getListはMicroCMSListResponse<Work>を返す
+  const worksData = await client.getList<Work>({
+    endpoint: "works",
+    queries,
+  });
+  return worksData;
+};
