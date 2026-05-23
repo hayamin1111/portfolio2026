@@ -1,9 +1,14 @@
 import Hero from "@/app/_components/Hero";
 import Card from "@/app/_components/Card";
-import {getWorksData} from "@/app/_libs/microcms";
+import {getWorks} from "@/app/_libs/microcms";
+import {WORKS_DATA_LIMIT, WORKS_LIST_FIELDS, WORKS_ORDERS} from "@/app/_constants"
 
 export default async function Page() {
-  const worksData = await getWorksData();
+  const worksData = await getWorks({ 
+    limit: WORKS_DATA_LIMIT,
+    fields: WORKS_LIST_FIELDS,
+    orders: WORKS_ORDERS,
+   });
 
   //section分け
   const webWorks = worksData.contents.filter((work) => work.category.includes("web"));

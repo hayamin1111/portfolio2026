@@ -19,7 +19,7 @@ export default function Card({ contents }: Props) {
             {
               contents.map(card => (
                 <article key={card.id} className={styles.card}>
-                  <Link href={card.link ?? `/works/${card.slug}`} className={styles.link}>
+                  <Link href={card.link ?? `/works/${card.id}`} className={styles.link}>
                     <dl className={styles.content}>
                       <dt className={styles.title}>{card.title}</dt>
                       <dd className={styles.description}>

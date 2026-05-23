@@ -5,6 +5,9 @@
   --min-screen-width: 360px;
   --max-screen-width: 1920px;
 
+  /* メディアクエリ */
+  --breakpoint: 768px;
+
   /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
 
   /* --- 見出し --- */
@@ -25,6 +28,7 @@
   --text-xl: calc(var(--text-xs) * 1.8); /* 18~25.2px */
 
   /* 余白 */
+  --space-xxs: clamp(0.313rem, 0.321vw + 0.24rem, 0.625rem); /* 5~10px */
   --space-xs: clamp(1.25rem, 0.625vw + 1.109rem, 1.875rem); /* 20~30px */
   --space-sm: calc(var(--space-xs) * 1.5); /* 30~45px */
   --space-md: calc(var(--space-xs) * 2); /* 40~60px */
@@ -42,7 +46,7 @@
   --color-secondary: #c8ff00; 
   --color-secondary-content: #3e0a15;
   --color-accent: #ffe500; 
-  --color-accent-content: #3e3800;
+  --color-accent-content: #292926;
   --color-neutral: #373737; 
   --color-neutral-content: #d6d6d6;
   --color-info: #5cb0d6;
@@ -63,7 +67,7 @@
   --radius-selector: 5px;
   --radius-field: 3px;
   --radius-box: 4px;
-  --radius-tag: 3px;
+  --radius-tag: 999px;
   --size-selector: 3px;
   --size-field: 3px;
   --border: 1px;
@@ -124,7 +128,7 @@ body {
 main {
   max-width: var(--max-screen-width);
   margin-inline: auto;
-  width: calc(100% - var(--space-xs) * 2);
+  width: calc(100% - var(--space-md) * 2);
 }
 
 a {
@@ -146,6 +150,10 @@ em {
 ul, ol {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+dl, dt , dd, p {
   margin: 0;
 }
 

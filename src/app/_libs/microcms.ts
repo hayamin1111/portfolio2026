@@ -16,12 +16,26 @@ const client = createClient({
   apiKey: process.env.MICROCMS_API_KEY,
 });
 
-// データ取得
-export const getWorksData = async (queries?: MicroCMSQueries) => {
-  //getListはMicroCMSListResponse<Work>を返す
-  const worksData = await client.getList<Work>({
+// 一覧ページ用データ取得
+export const getWorks = async (queries?: MicroCMSQueries) => {
+  //getListは複数まとめて返す
+  const works = await client.getList<Work>({
     endpoint: "works",
     queries,
   });
-  return worksData;
+  return works;
+};
+
+// 詳細ページ用データ取得
+export const getWorkDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  //getListDetailは1件のみ返す
+  const workDetail = await client.getListDetail<Work>({
+    endpoint: "works",
+    contentId,
+    queries,
+  });
+  return workDetail;
 };
