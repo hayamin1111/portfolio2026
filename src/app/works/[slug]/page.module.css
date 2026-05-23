@@ -1,5 +1,4 @@
   .heading1 {
-    max-width: 14ch;
     margin-block: var(--space-md) var(--space-xs);
     font-weight: 900;
     line-height: 0.95;
