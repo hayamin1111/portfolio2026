@@ -17,12 +17,12 @@ export type Tech = {
 export type Work = MicroCMSListContent & {
   category: WorkCategory[];
   title: string;
-  summary: string;
+  summary?: string;
   thumbnail: MicroCMSImage;
   detail?: string;
   techs: Tech[];
-  featured: boolean;
-  sortOrder: number;
+  featured?: boolean;
+  sortOrder?: number;
   link?: string;
 };
 

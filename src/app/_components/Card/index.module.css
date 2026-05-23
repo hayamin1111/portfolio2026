@@ -65,7 +65,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xxs);
-  margin-block-start: var(--space-xs);
+  margin-block-start: var(--space-xxs);
 }
 
 .tag {
