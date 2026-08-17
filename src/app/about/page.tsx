@@ -2,7 +2,6 @@ import Hero from "@/app/_components/Hero";
 import styles from "./page.module.css";
 import Image from "next/image";
 
-
 interface About {
   id: string,
   name: string,
@@ -42,7 +41,7 @@ export default function Page() {
         data === null ? (
           <p className={styles.none}>プロフィールが登録されていません。</p>
         ) : (
-          <div className={styles.profileBlock}>            
+          <div className={styles.profileBlock}>
             <Image
               src={data.image.url}
               width={data.image.width}

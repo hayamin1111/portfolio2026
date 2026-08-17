@@ -1,25 +1,21 @@
 .hero {
-  display: grid;
-  gap: var(--space-xs);
-  min-height: clamp(360px, 55svh, 720px);
-  align-content: center;
-  padding-block: var(--space-lg);
-  /* border-bottom: var(--border) solid var(--color-base-300); */
+  padding-block: var(--space-md) var(--space-lg);
 }
 
 .title {
-  font-size: var(--hero);
-  font-weight: 900;
   max-width: 12ch;
   margin: 0;
-  letter-spacing: 0;
-  line-height: .9;
+  font-size: var(--hero);
+  font-weight: 900;
+  line-height: 0.9;
   text-transform: uppercase;
+  letter-spacing: 0;
 }
 
-.subTitle { 
-  font-size: var(--small-heading1);
+.subTitle {
   margin: 0;
+  margin-block-start: var(--space-xs);
+  font-size: var(--small-heading1);
   font-weight: 700;
   line-height: var(--line-height-sm);
 }
@@ -27,9 +23,9 @@
 .lead {
   max-width: 42rem;
   margin: 0;
-  color: color-mix(in srgb, var(--color-base-content), white 32%);
   font-size: var(--text-sm);
   line-height: var(--line-height-lg);
+  color: color-mix(in srgb, var(--color-base-content), white 32%);
 }
 
 @media (width <= 768px) {

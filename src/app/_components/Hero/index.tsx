@@ -1,6 +1,5 @@
 import styles from "./index.module.css";
 
-
 interface Props {
   title?: string;
   subTitle?: string;
@@ -9,7 +8,7 @@ interface Props {
 
 export default function Hero({
   title = "Hayakawa Portfolio",
-  subTitle = "マークアップエンジニア（フロントエンド領域対応）",
+  subTitle = "フロントエンドエンジニア",
   text = false,
 }: Props) {
   return (

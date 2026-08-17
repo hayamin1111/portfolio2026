@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 
 type Chars = [binary: string, hex: string, text: string];
 
-const title = "hayakawa\nportfolio";
+const title = "hayakawa";
 
 const chars: Chars[] = title.split("").map((char) => {
   const code = char.charCodeAt(0);
@@ -23,8 +23,9 @@ const chars: Chars[] = title.split("").map((char) => {
 export default function HeroTop() {
   const [charPhases, setCharPhases] = useState(
     // charsの配列の数だけ0のある配列が返される[0, 0, 0, 0...]
-    chars.map(() => 0)
+    chars.map(() => 0),
   );
+  const [showPortfolio, setShowPortfolio] = useState(false);
   const [showLead, setShowLead] = useState(false);
 
   // 時間差でアニメーション実行のため副作用（setTimeout）を扱うのでuseEffect使用
@@ -35,20 +36,23 @@ export default function HeroTop() {
     chars.forEach((_, charIndex) => {
       // [0]は初期値（binary）なので使わない。
       [1, 2].forEach((nextPhase) => {
-        const timerId = window.setTimeout(() => {
-          // state更新
-          setCharPhases((prev) => {
-            // prev をコピーして新しい配列 next を作る
-            const next = [...prev];
-            next[charIndex] = nextPhase;
-            return next;
-          });
-        // 文字ごとに 120ms ずらし、フェーズ1は +900ms、フェーズ2は +1800ms ずらす
-        }, charIndex * 140 + nextPhase * 600);
+        const timerId = window.setTimeout(
+          () => {
+            // state更新
+            setCharPhases((prev) => {
+              // prev をコピーして新しい配列 next を作る
+              const next = [...prev];
+              next[charIndex] = nextPhase;
+              return next;
+            });
+            // 文字ごとに 120ms ずらし、フェーズ1は +900ms、フェーズ2は +1800ms ずらす
+          },
+          charIndex * 140 + nextPhase * 600,
+        );
         timerIds.push(timerId);
       });
     });
-  
+
     return () => {
       // クリーンアップ関数
       timerIds.forEach((timerId) => {
@@ -64,30 +68,23 @@ export default function HeroTop() {
         {chars.map((char, index) => {
           // どのphase（文字）を表示するかを取得
           const currentPhase = charPhases[index];
-          
+
           //リードの表示用
           const isLastChar = index === chars.length - 1; //全文字が最終phaseになったか
           const isFinalPhase = currentPhase === 2; //最後の文字か
 
-          // 改行
-          if (char[2] === "\n") {
-            return <br key={index} />;
-          }
-
           return (
             <span className={styles.char} key={index}>
-              {/* wait: 古い要素のexitが終わってから新しい要素をenterさせる */}
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentPhase}
                   initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                  transition={{ duration: 0.1, ease: [0.87, 0.05, 0.02, 0.97] }}
+                  exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+                  transition={{ duration: 0.09, ease: [0.87, 0.05, 0.02, 0.97] }}
                   onAnimationComplete={() => {
-                    // リード表示
                     if (isLastChar && isFinalPhase) {
-                      setShowLead(true);
+                      setShowPortfolio(true);
                     }
                   }}
                 >
@@ -97,16 +94,34 @@ export default function HeroTop() {
             </span>
           );
         })}
+        {/* wait: 古い要素のexitが終わってから新しい要素をenterさせる */}
+        <AnimatePresence mode="wait">
+          {showPortfolio && (
+            <motion.span
+              className={styles.subTitle}
+              initial={{ opacity: 0, y: 4, filter: "blur(2px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.5, ease: [0.87, 0.05, 0.02, 0.97] }}
+              onAnimationComplete={() => setShowLead(true)}
+            >
+              portfolio
+            </motion.span>
+          )}
+        </AnimatePresence>
       </h1>
       {showLead && (
         <motion.p
           className={styles.text}
           initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.6, ease: [0.87, 0.05, 0.02, 0.97] }}
+          transition={{ duration: 0.7, ease: [0.87, 0.05, 0.02, 0.97] }}
         >
-          <em className={styles.textEmphasis}>マークアップエンジニア（フロントエンド領域対応）</em><br/>
-          マークアップを軸に、更新性・拡張性を意識したWebサイト構築・フロントエンド実装を行っています。
+          <em className={styles.textEmphasis}>
+            フロントエンドエンジニア（マークアップ領域が得意です）
+          </em>
+          セマンティックでアクセシブルなマークアップと、デザインを忠実に再現するスタイリングを強みに、TypeScriptを用いたAPI連携などのフロントエンド実装を経験。
+          <br />
+          現在はReact / Next.jsへ領域を広げています。
         </motion.p>
       )}
     </section>

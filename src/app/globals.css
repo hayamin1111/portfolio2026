@@ -1,4 +1,4 @@
-@import 'modern-normalize';
+@import "modern-normalize";
 
 :root {
   /* フラウザ幅 */
@@ -11,7 +11,7 @@
   /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
 
   /* --- 見出し --- */
-  --hero: clamp(3.75rem, 3.75vw + 2.906rem, 7.5rem); /* 60~120px */
+  --hero: clamp(3.125rem, 3.205vw + 2.404rem, 6.25rem); /* 50~100px */
   --heading1: clamp(2rem, 2vw + 1.55rem, 4rem); /* 32~64px */
   --heading2: clamp(1.5rem, 0.25vw + 1.444rem, 1.75rem); /* 24~28px */
   --heading3: clamp(1.125rem, 0.125vw + 1.097rem, 1.25rem); /* 18~20px */
@@ -41,13 +41,13 @@
   --color-base-200: #f0f0eb;
   --color-base-300: #d9d9d1;
   --color-base-content: #151515;
-  --color-primary: #151515; 
+  --color-primary: #151515;
   --color-primary-content: #fbfbf8;
-  --color-secondary: #c8ff00; 
+  --color-secondary: #c8ff00;
   --color-secondary-content: #3e0a15;
-  --color-accent: #ffe500; 
+  --color-accent: #ffe500;
   --color-accent-content: #292926;
-  --color-neutral: #373737; 
+  --color-neutral: #373737;
   --color-neutral-content: #d6d6d6;
   --color-info: #5cb0d6;
   --color-info-content: #1a2c35;
@@ -72,7 +72,6 @@
   --size-field: 3px;
   --border: 1px;
 }
-
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -101,14 +100,16 @@
 } */
 
 body {
-  background: var(--color-base-100);
-  color: var(--color-base-content);
-  line-height: var(--line-height-md);
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-family:
+    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP",
+    sans-serif;
   font-size: var(--text-md);
+  line-height: var(--line-height-md);
+  color: var(--color-base-content);
   letter-spacing: 0;
-  overflow-wrap: anywhere;
   word-break: normal;
+  overflow-wrap: anywhere;
+  background: var(--color-base-100);
 
   &.is-fixed {
     /* position: fixed; */
@@ -121,22 +122,22 @@ body {
 /* 直下にheader・main・footerの3要素 */
 .wrapper {
   display: grid;
-  min-height: 100svh;
   grid-template-rows: auto 1fr auto;
+  min-height: 100svh;
 }
 
 main {
+  width: calc(100% - var(--space-md) * 2);
   max-width: var(--max-screen-width);
   margin-inline: auto;
-  width: calc(100% - var(--space-md) * 2);
 }
 
 a {
-  text-decoration: none;
   color: inherit;
-  transition: color .3s;
+  text-decoration: none;
+  transition: color 0.3s;
 
-  @media(hover: hover) and (pointer: fine) {
+  @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: color-mix(in srgb, currentColor, black 20%);
     }
@@ -147,13 +148,17 @@ em {
   font-style: normal;
 }
 
-ul, ol {
-  list-style: none;
+ul,
+ol {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
-dl, dt , dd, p {
+dl,
+dt,
+dd,
+p {
   margin: 0;
 }
 
@@ -168,19 +173,19 @@ h1 {
   line-height: var(--line-height-sm);
 }
 h2 {
+  margin-block: 0 var(--space-xs);
   font-size: var(--heading2);
   line-height: var(--line-height-sm);
-  margin-block: 0 var(--space-xs);
 }
 h3 {
+  margin-block: 0 var(--space-xs);
   font-size: var(--heading3);
   line-height: var(--line-height-sm);
-  margin-block: 0 var(--space-xs);
 }
 
 button {
+  padding: 0;
+  cursor: pointer;
   background-color: transparent;
   border: none;
-  cursor: pointer;
-  padding: 0;
 }

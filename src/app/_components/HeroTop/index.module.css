@@ -1,8 +1,6 @@
 .hero {
-  /* display: grid;
-  align-content: center; */
   min-height: 70svh;
-  padding-block: var(--space-lg);
+  padding-block: var(--space-md);
   /* border-bottom: var(--border) solid var(--color-base-300); */
 }
 
@@ -14,29 +12,38 @@
 }
 
 .title {
-  /* max-width: 12ch; */
-  /* min-height: 3em; */
   margin: 0;
   font-size: var(--hero);
   font-weight: 900;
-  line-height: .9;
-  overflow-wrap: break-word;
+  line-height: 0.9;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 .char {
-  display: inline-block;
+  span {
+    word-break: break-all;
+  }
+}
+
+.subTitle {
+  display: block;
+  margin-block-start: var(--space-xs);
+  font-size: calc(var(--hero) * 0.6);
+  text-transform: uppercase;
 }
 
 .text {
   max-width: 42rem;
-  margin: var(--space-xs) 0 0;
-  color: color-mix(in srgb, var(--color-base-content), white 32%);
-  font-size: var(--text-lg);
+  margin-block-start: var(--space-xs);
+  font-size: var(--text-md);
   line-height: var(--line-height-lg);
+  color: color-mix(in srgb, var(--color-base-content), white 32%);
 }
 
 .textEmphasis {
-  font-weight: 600;
+  display: block;
+  margin-block-end: var(--space-xxs);
   font-size: var(--text-xl);
+  font-weight: 600;
 }

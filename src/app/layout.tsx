@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from '@/app/_components/Header';
-import Footer from '@/app/_components/Footer';
+import Header from "@/app/_components/Header";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
-  title: "My new site",
-  description: "Hayakawa portfolio 2026",
+  title: "Hayakawa portfolio 2026",
+  description: "早川のポートフォリオサイト。マークアップを得意とするフロントエンドエンジニアです。",
 };
 
-export default function RootLayout({ children }: Readonly <{
+export default function RootLayout({
+  children,
+}: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
@@ -17,9 +19,7 @@ export default function RootLayout({ children }: Readonly <{
         <div className="wrapper">
           <Header />
 
-          <main>
-            {children}
-          </main>
+          <main>{children}</main>
 
           <Footer />
         </div>
