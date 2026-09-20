@@ -1,7 +1,7 @@
 .title {
+  margin-bottom: var(--space-sm);
   font-size: var(--heading2);
   text-align: center;
-  margin-bottom: var(--space-sm);
 }
 
 .text {

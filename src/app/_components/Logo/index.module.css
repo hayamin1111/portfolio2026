@@ -1,0 +1,13 @@
+.logo {
+  font-weight: 700;
+}
+
+:where(a).logo {
+  transition: color 0.2s;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+}

@@ -1,6 +1,5 @@
 .fv {
-  min-height: 65svh;
-  padding-block: var(--space-md);
+  min-height: 70svh;
 }
 
 .label {
@@ -30,12 +29,12 @@
 }
 
 .textEmphasis {
-  margin-block-end: var(--space-xxs);
+  color: var(--color-primary);
 }
 
-.text {
+.lead {
   max-width: 42rem;
-  margin-block-start: var(--space-xs);
+  margin-block-start: var(--space-md);
   font-size: var(--text-md);
   line-height: var(--line-height-lg);
   color: color-mix(in srgb, var(--color-base-content), white 32%);

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import DecoHeaeder from "@/app/_components/Deco";
 import styles from "./index.module.css";
 
 type AnimationMode = "checking" | "play" | "skip";
@@ -92,7 +93,8 @@ export default function FirstView() {
 
   // HTMLレンダリング
   return (
-    <section className={styles.hero}>
+    <section className={styles.fv}>
+      <DecoHeaeder>Introduction</DecoHeaeder>
       {shouldRenderTitle && (
         <h1 className={styles.title}>
           {chars.map((char, index) => {
@@ -127,7 +129,6 @@ export default function FirstView() {
           })}
           {/* wait: 古い要素のexitが終わってから新しい要素をenterさせる */}
           <AnimatePresence mode="wait">
-            {/* {isPortfolioReady && ( */}
             {shouldRenderPortfolio && (
               <motion.span
                 className={styles.subTitle}
@@ -136,25 +137,22 @@ export default function FirstView() {
                 transition={{ duration: 0.5, ease: [0.87, 0.05, 0.02, 0.97] }}
                 onAnimationComplete={() => setIsLeadReady(true)}
               >
-                <em className={styles.textEmphasis}>Markup / Frontend</em>
-                <br />
-                Engineer
+                Markup & <em className={styles.textEmphasis}>Frontend</em>
               </motion.span>
             )}
           </AnimatePresence>
         </h1>
       )}
-      {/* {isLeadReady && ( */}
       {shouldRenderLead && (
         <motion.p
-          className={styles.text}
+          className={styles.lead}
           initial={isPlaying ? { opacity: 0, y: 8, filter: "blur(4px)" } : false}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.7, ease: [0.87, 0.05, 0.02, 0.97] }}
         >
-          拡張性・更新性を重視したマークアップと、デザインを忠実に再現するスタイリングを主軸に、TypeScriptを用いたAPI連携やUIのフロントエンド実装も経験してまいりました。
+          拡張性・更新性・デザイン再現性を重視したマークアップ・スタイリングを主軸に、TypeScriptを用いたAPI連携などのフロントエンド実装も経験してきました。
           <br />
-          現在はJavaScriptフレームワークへ領域を広げようと日々学んでいます。
+          これまでの制作経験を活かして安定した実装に貢献しながら、JavaScriptフレームワークを用いたフロントエンド領域へも対応範囲を広げています。
         </motion.p>
       )}
     </section>

@@ -3,6 +3,6 @@
 }
 .list {
   display: flex;
-  justify-content: flex-end;
   column-gap: var(--space-xs);
+  justify-content: flex-end;
 }
