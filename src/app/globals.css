@@ -5,6 +5,10 @@
   --min-screen-width: 360px;
   --max-screen-width: 1920px;
 
+  /* 長文パラグラフ幅 */
+  --max-paragraph-width: 960px;
+  --max-paragraph-width: 56ic;
+
   /* メディアクエリ */
   --breakpoint: 768px;
 
@@ -123,7 +127,7 @@ body {
 .wrapper {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: 100svh;
+  min-height: 100dvh;
 }
 
 main {

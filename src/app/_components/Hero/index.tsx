@@ -8,7 +8,7 @@ interface Props {
 
 export default function Hero({
   title = "Hayakawa Portfolio",
-  subTitle = "フロントエンドエンジニア",
+  subTitle = "マークアップ・フロントエンドエンジニア",
   text = false,
 }: Props) {
   return (

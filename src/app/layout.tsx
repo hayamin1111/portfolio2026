@@ -5,7 +5,7 @@ import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Hayakawa portfolio 2026",
-  description: "早川のポートフォリオサイト。マークアップを得意とするフロントエンドエンジニアです。",
+  description: "早川のポートフォリオサイト。マークアップ・フロントエンドエンジニア。",
 };
 
 export default function RootLayout({
