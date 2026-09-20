@@ -1,36 +1,38 @@
 .button {
-  display: block;
   position: fixed;
   top: var(--space-xs);
   right: var(--space-xs);
-  filter: invert(100%);
-  mix-blend-mode: exclusion;
   z-index: 300;
+  display: block;
+  mix-blend-mode: exclusion;
+  filter: invert(100%);
 
   .lines {
-    vertical-align: middle;
     overflow: visible;
-  
+    vertical-align: middle;
+
     > * {
-      transition: transform .3s, opacity .3s;
-      transition-timing-function: cubic-bezier(0.87, 0.05, 0.02, 0.97);
-      transform-origin: center; 
+      transform-origin: center;
       transform-box: fill-box;
+      transition:
+        transform 0.3s,
+        opacity 0.3s;
+      transition-timing-function: cubic-bezier(0.87, 0.05, 0.02, 0.97);
     }
-  }  
+  }
 
   &.open {
-    .lines > :nth-child(1)  {
+    .lines > :nth-child(1) {
       transform: translateY(9px) rotate(45deg);
-      transition-delay: .1s;
+      transition-delay: 0.1s;
     }
     .lines > :nth-child(2) {
       opacity: 0;
       transform: scale(0);
     }
-    .lines > :nth-child(3){
+    .lines > :nth-child(3) {
       transform: translateY(-9px) rotate(-45deg);
-      transition-delay: .1s;
+      transition-delay: 0.1s;
     }
   }
 }
@@ -39,17 +41,17 @@
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 200;
+  visibility: hidden;
   width: 100%;
   height: 100vh;
   height: 100dvh;
   padding: var(--space-md) var(--space-xs) var(--space-xs);
-  z-index: 200;
   overflow: clip;
-  pointer-events: none;
-  visibility: hidden;
-  color: var(--color-base-100);
   font-size: calc(var(--text-xl) * 1.6);
   font-weight: 900;
+  color: var(--color-base-100);
+  pointer-events: none;
 
   &.open,
   &.closing {
@@ -63,7 +65,7 @@
     .animation {
       &::before,
       &::after {
-        animation: maskIn .5s cubic-bezier(0.87, 0.05, 0.02, 0.97) both;
+        animation: maskIn 0.5s cubic-bezier(0.87, 0.05, 0.02, 0.97) both;
       }
 
       &::before {
@@ -71,27 +73,27 @@
       }
 
       &::after {
-        animation-delay: calc(.1s + var(--delay));
+        animation-delay: calc(0.1s + var(--delay));
       }
     }
 
     .listItem {
-      animation: fadeIn .5s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation: fadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 
       &:nth-child(1) {
         animation-delay: var(--delay);
       }
 
       &:nth-child(2) {
-        animation-delay: calc(.1s + var(--delay));
+        animation-delay: calc(0.1s + var(--delay));
       }
 
       &:nth-child(3) {
-        animation-delay: calc(.2s + var(--delay));
+        animation-delay: calc(0.2s + var(--delay));
       }
 
       &:nth-child(4) {
-        animation-delay: calc(.3s + var(--delay));
+        animation-delay: calc(0.3s + var(--delay));
       }
     }
   }
@@ -100,7 +102,7 @@
     .animation {
       &::before,
       &::after {
-        animation: maskOut .5s cubic-bezier(0.87, 0.05, 0.02, 0.97) both;
+        animation: maskOut 0.5s cubic-bezier(0.87, 0.05, 0.02, 0.97) both;
       }
 
       &::before {
@@ -113,22 +115,22 @@
     }
 
     .listItem {
-      animation: fadeOut .2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation: fadeOut 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
   }
 }
 
 .animation {
-  --delay: .2s;
+  --delay: 0.2s;
   position: absolute;
   inset: 0;
   overflow: hidden;
 
   &::before,
   &::after {
-    content: "";
     position: absolute;
     inset: 0;
+    content: "";
   }
 
   &::before {
@@ -146,173 +148,40 @@
 }
 
 .listItem {
-  --delay: .8s;
+  --delay: 0.8s;
 
   display: block;
   padding: var(--space-xs);
   opacity: 0;
   transform: translateX(-2em);
 }
-
-/* .nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  padding: var(--space-md) var(--space-xs) var(--space-xs);
-  z-index: 200;
-  overflow: clip;
-  pointer-events: none;
-  visibility: hidden;
-  color: var(--color-base-100);
-  font-size: calc(var(--text-xl) * 1.6);
-  font-weight: 900;
-}
-
-.nav.open,
-.nav.closing {
-  visibility: visible;
-}
-
-.nav.open {
-  overflow-y: auto;
-  pointer-events: auto;
-}
-
-.animation {
-  --delay: .2s;
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.animation::before,
-.animation::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.animation::before {
-  background-color: var(--color-base-300);
-}
-
-.animation::after {
-  background-color: var(--color-neutral);
-}
-
-.nav.open .animation::before,
-.nav.open .animation::after {
-  animation: maskIn .5s cubic-bezier(0.87, 0.05, 0.02, 0.97) both;
-}
-
-.nav.open .animation::before {
-  animation-delay: var(--delay);
-}
-
-.nav.open .animation::after {
-  animation-delay: calc(.1s + var(--delay));
-}
-
-.nav.closing .animation::before,
-.nav.closing .animation::after {
-  animation: maskOut .5s cubic-bezier(0.87, 0.05, 0.02, 0.97) both;
-}
-
-.nav.closing .animation::before {
-  animation-delay: var(--delay);
-}
-
-.nav.closing .animation::after {
-  animation-delay: 0s;
-}
-
-.list { 
-  position: relative;
-  z-index: 1;
-}
-
-.listItem {
-  --delay: .8s;
-
-  display: block;
-  padding: var(--space-xs);
-  opacity: 0;
-  transform: translateX(-2em);
-}
-
-.nav.open .listItem {
-  animation: fadeIn .5s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.nav.open .listItem:nth-child(1) {
-  animation-delay: var(--delay);
-}
-
-.nav.open .listItem:nth-child(2) {
-  animation-delay: calc(.1s + var(--delay));
-}
-
-.nav.open .listItem:nth-child(3) {
-  animation-delay: calc(.2s + var(--delay))
-}
-
-.nav.open .listItem:nth-child(4) {
-  animation-delay: calc(.3s + var(--delay))
-}
-
-.nav.closing .listItem {
-  animation: fadeOut .2s cubic-bezier(0.22, 1, 0.36, 1) both;
-} */
 
 .link {
   display: inline-flex;
-  align-items: baseline;
   column-gap: 0.4em;
+  align-items: center;
 }
 
 .icon {
   flex-shrink: 0;
-  margin-top: 0.1em;
+  width: 1.4em;
+  height: auto;
 }
-
 
 @keyframes maskIn {
   0% {
-    clip-path: polygon(
-      100% 0, 
-      100% 0, 
-      200% 100%, 
-      200% 100%
-    );
+    clip-path: polygon(100% 0, 100% 0, 200% 100%, 200% 100%);
   }
   to {
-    clip-path: polygon(
-      -100% 0,
-      100% 0,
-      200% 100%,
-      0 100%
-    );
+    clip-path: polygon(-100% 0, 100% 0, 200% 100%, 0 100%);
   }
 }
 @keyframes maskOut {
   from {
-    clip-path: polygon(
-      -100% 0,
-      100% 0,
-      200% 100%,
-      0 100%
-    );
+    clip-path: polygon(-100% 0, 100% 0, 200% 100%, 0 100%);
   }
   to {
-    clip-path: polygon(
-      -100% 0, 
-      -100% 0, 
-      0 100%, 
-      0 100%
-    );
+    clip-path: polygon(-100% 0, -100% 0, 0 100%, 0 100%);
   }
 }
 

@@ -1,7 +1,6 @@
-.hero {
+.fv {
   min-height: 65svh;
   padding-block: var(--space-md);
-  /* border-bottom: var(--border) solid var(--color-base-300); */
 }
 
 .label {
@@ -13,10 +12,10 @@
 
 .title {
   margin: 0;
-  font-size: var(--hero);
+  font-size: var(--fv);
   font-weight: 900;
-  line-height: 0.9;
-  text-transform: uppercase;
+  font-weight: 700;
+  line-height: var(--line-height-xs);
   overflow-wrap: break-word;
 }
 
@@ -28,9 +27,10 @@
 
 .subTitle {
   display: block;
-  margin-block-start: var(--space-xs);
-  font-size: calc(var(--hero) * 0.6);
-  text-transform: uppercase;
+}
+
+.textEmphasis {
+  margin-block-end: var(--space-xxs);
 }
 
 .text {
@@ -39,11 +39,4 @@
   font-size: var(--text-md);
   line-height: var(--line-height-lg);
   color: color-mix(in srgb, var(--color-base-content), white 32%);
-}
-
-.textEmphasis {
-  display: block;
-  margin-block-end: var(--space-xxs);
-  font-size: var(--text-xl);
-  font-weight: 600;
 }

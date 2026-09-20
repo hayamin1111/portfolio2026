@@ -1,8 +1,9 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  max-width: var(--max-screen-width);
+  justify-content: space-between;
   width: calc(100% - var(--space-xs) * 2);
+  max-width: var(--max-screen-width);
   margin: var(--space-xs) auto;
+  font-family: var(--font-mono);
 }

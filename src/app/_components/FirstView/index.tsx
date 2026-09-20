@@ -7,7 +7,7 @@ import styles from "./index.module.css";
 type AnimationMode = "checking" | "play" | "skip";
 type Chars = [binary: string, hex: string, text: string];
 
-const title: string = "hayakawa";
+const title: string = "Hayakawa";
 const LAST_ANIMATION_PLAYED_AT: string = "last_animation_played_at";
 const FIRST_VISITED_TTL_MS: number = 3 * 60 * 60 * 1000;
 
@@ -23,7 +23,7 @@ const chars: Chars[] = title.split("").map((char) => {
   ];
 });
 
-export default function HeroTop() {
+export default function FirstView() {
   const [charPhases, setCharPhases] = useState(
     chars.map(() => 0), // charsの配列の数だけ0のある配列が返される[0, 0, 0, 0...]
   );
@@ -93,7 +93,6 @@ export default function HeroTop() {
   // HTMLレンダリング
   return (
     <section className={styles.hero}>
-      {/* {animationMode === "skip" && <h1 className={styles.title}>hayakawa</h1>} */}
       {shouldRenderTitle && (
         <h1 className={styles.title}>
           {chars.map((char, index) => {
@@ -137,7 +136,9 @@ export default function HeroTop() {
                 transition={{ duration: 0.5, ease: [0.87, 0.05, 0.02, 0.97] }}
                 onAnimationComplete={() => setIsLeadReady(true)}
               >
-                portfolio
+                <em className={styles.textEmphasis}>Markup / Frontend</em>
+                <br />
+                Engineer
               </motion.span>
             )}
           </AnimatePresence>
@@ -151,7 +152,6 @@ export default function HeroTop() {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.7, ease: [0.87, 0.05, 0.02, 0.97] }}
         >
-          <em className={styles.textEmphasis}>マークアップ・フロントエンドエンジニア</em>
           拡張性・更新性を重視したマークアップと、デザインを忠実に再現するスタイリングを主軸に、TypeScriptを用いたAPI連携やUIのフロントエンド実装も経験してまいりました。
           <br />
           現在はJavaScriptフレームワークへ領域を広げようと日々学んでいます。

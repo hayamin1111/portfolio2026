@@ -1,4 +1,6 @@
 @import "modern-normalize";
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
 
 :root {
   /* フラウザ幅 */
@@ -9,12 +11,13 @@
   --max-paragraph-width: 960px;
   --max-paragraph-width: 56ic;
 
-  /* メディアクエリ */
-  --breakpoint: 768px;
+  /* フォント */
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
   /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
-
   /* --- 見出し --- */
+  --fv: clamp(3.75rem, 3.846vw + 2.885rem, 7.5rem); /* 60~120px */
   --hero: clamp(3.125rem, 3.205vw + 2.404rem, 6.25rem); /* 50~100px */
   --heading1: clamp(2rem, 2vw + 1.55rem, 4rem); /* 32~64px */
   --heading2: clamp(1.5rem, 0.25vw + 1.444rem, 1.75rem); /* 24~28px */
@@ -41,26 +44,26 @@
   --space-jump: clamp(1.25rem, 2.438vw + 0.702rem, 3.688rem); /* 20~60px */
 
   /* 色（daisyUIのthemeより：https://daisyui.com/ ）  */
-  --color-base-100: #fbfbf8;
-  --color-base-200: #f0f0eb;
-  --color-base-300: #d9d9d1;
-  --color-base-content: #151515;
-  --color-primary: #151515;
-  --color-primary-content: #fbfbf8;
-  --color-secondary: #c8ff00;
-  --color-secondary-content: #3e0a15;
-  --color-accent: #ffe500;
-  --color-accent-content: #292926;
-  --color-neutral: #373737;
-  --color-neutral-content: #d6d6d6;
-  --color-info: #5cb0d6;
-  --color-info-content: #1a2c35;
-  --color-success: #8e1f6a;
-  --color-success-content: #f4e8f0;
-  --color-warning: #ff8c2b;
-  --color-warning-content: #3e240a;
-  --color-error: #ff3356;
-  --color-error-content: #3e0b14;
+  --color-base-100: #fcfbf8; /* ページ背景 */
+  --color-base-200: #f5f1ec; /* カードや薄いセクション背景 */
+  --color-base-300: #e6ded6; /* border・grid線 */
+  --color-base-content: #1f2328; /* 本文・見出し */
+  --color-primary: #e4572e; /* CTA、リンク、強調 */
+  --color-primary-content: #ffffff;
+  --color-secondary: #f4a261; /* hover、タグ、薄い装飾 */
+  --color-secondary-content: #2b160e;
+  --color-accent: #c94c2f; /* 小さいドット、アイコン、補助強調 */
+  --color-accent-content: #ffffff;
+  --color-neutral: #343840; /* ナビやコード風UI */
+  --color-neutral-content: #f5f5f4;
+  --color-info: #4b7bec;
+  --color-info-content: #ffffff;
+  --color-success: #3a7d5d;
+  --color-success-content: #ffffff;
+  --color-warning: #d97706;
+  --color-warning-content: #2a1600;
+  --color-error: #d92d20;
+  --color-error-content: #ffffff;
 
   --line-height-xs: 1;
   --line-height-sm: 1.2;
@@ -104,9 +107,7 @@
 } */
 
 body {
-  font-family:
-    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP",
-    sans-serif;
+  font-family: var(--font-sans);
   font-size: var(--text-md);
   line-height: var(--line-height-md);
   color: var(--color-base-content);
@@ -116,8 +117,6 @@ body {
   background: var(--color-base-100);
 
   &.is-fixed {
-    /* position: fixed; */
-    /* width: 100%; */
     overflow: hidden;
     touch-action: none;
   }
@@ -134,6 +133,10 @@ main {
   width: calc(100% - var(--space-md) * 2);
   max-width: var(--max-screen-width);
   margin-inline: auto;
+
+  @media (width < 768px) {
+    width: calc(100% - var(--space-xs) * 2);
+  }
 }
 
 a {
