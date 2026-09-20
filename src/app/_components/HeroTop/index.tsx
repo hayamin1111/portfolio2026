@@ -152,9 +152,9 @@ export default function HeroTop() {
           transition={{ duration: 0.7, ease: [0.87, 0.05, 0.02, 0.97] }}
         >
           <em className={styles.textEmphasis}>マークアップ・フロントエンドエンジニア</em>
-          セマンティックでアクセシブルなマークアップと、デザインを忠実に再現するスタイリングを強みに、TypeScriptを用いたAPI連携などのフロントエンド実装を経験。
+          拡張性・更新性を重視したマークアップと、デザインを忠実に再現するスタイリングを主軸に、TypeScriptを用いたAPI連携やUIのフロントエンド実装も経験してまいりました。
           <br />
-          現在はReact / Next.jsへ領域を広げています。
+          現在はJavaScriptフレームワークへ領域を広げようと日々学んでいます。
         </motion.p>
       )}
     </section>
