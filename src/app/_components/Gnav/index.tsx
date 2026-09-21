@@ -116,7 +116,7 @@ export default function Gnav() {
                 <span className={styles.linkIcon}>
                   <FingerIcon />
                 </span>
-                {item.label}
+                <span className={styles.linkText}>{item.label}</span>
               </Link>
             </li>
           ))}

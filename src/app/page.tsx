@@ -12,7 +12,10 @@ export default function Home() {
           Hayakawaを知る
           <ArrowIcon />
         </Button>
-        <Button href="/works">個人制作を見る</Button>
+        <Button href="/works">
+          個人制作を見る
+          <ArrowIcon />
+        </Button>
       </div>
     </>
   );

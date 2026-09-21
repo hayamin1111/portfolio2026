@@ -13,19 +13,8 @@ export default function ArrowIcon() {
       className={styles.arrow}
       aria-hidden="true"
     >
-      <path
-        fill="currentColor"
-        d="
-          M0 78
-          H163
-          V20
-          L264 101
-          L163 181
-          V123
-          H0
-          Z
-        "
-      />
+      <rect className={styles.shaft} x="0" y="78" width="163" height="45" />
+      <path className={styles.head} d="M163 20 L264 101 L163 181 Z" />
     </svg>
   );
 }

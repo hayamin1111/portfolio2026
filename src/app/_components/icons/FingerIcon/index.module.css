@@ -6,7 +6,7 @@
 
   @media (hover: hover) and (pointer: fine) {
     :where(a:hover) & {
-      color: var(--color-secondary);
+      color: color-mix(in srgb, var(--color-neutral-content), black 20%);
     }
   }
 }
