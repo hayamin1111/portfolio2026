@@ -21,7 +21,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: color-mix(in srgb, var(--color-neutral) 50%, transparent 50%);
-  transition: color 0.3s;
+  transition: color 0.2s;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {

@@ -91,8 +91,8 @@
     object-fit: cover;
     filter: grayscale(0.5);
     transition:
-      filter 0.3s,
-      transform 0.3s;
+      filter 0.2s,
+      transform 0.2s;
   }
 }
 

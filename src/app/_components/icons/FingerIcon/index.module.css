@@ -1,6 +1,8 @@
 .finger {
   width: 1.3em;
   height: auto;
+  color: var(--color-neutral-content);
+  transition: color 0.2s;
 
   @media (hover: hover) and (pointer: fine) {
     :where(a:hover) & {

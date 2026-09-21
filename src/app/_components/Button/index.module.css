@@ -12,8 +12,8 @@
   border: var(--border) solid var(--color-base-content);
   border-radius: var(--radius-box);
   transition:
-    background-color 0.3s,
-    color 0.3s;
+    background-color 0.2s,
+    color 0.2s;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {

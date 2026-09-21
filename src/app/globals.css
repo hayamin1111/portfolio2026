@@ -156,7 +156,7 @@ main {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.2s;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {

@@ -9,7 +9,7 @@ export default function FingerIcon() {
     <svg
       className={styles.finger}
       viewBox="0 0 50 37"
-      fill="#fff"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
