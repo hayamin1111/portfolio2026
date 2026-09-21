@@ -1,0 +1,10 @@
+.arrow {
+  width: 1em;
+  color: var(--color-accent);
+
+  @media (hover: hover) and (pointer: fine) {
+    :where(a:hover) & {
+      color: var(--color-secondary);
+    }
+  }
+}

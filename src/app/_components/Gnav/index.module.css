@@ -161,14 +161,12 @@
 
 .link {
   display: inline-flex;
-  column-gap: 0.4em;
+  column-gap: 0.6em;
   align-items: center;
 }
 
-.icon {
+.linkIcon {
   flex-shrink: 0;
-  width: 1.4em;
-  height: auto;
 }
 
 @keyframes maskIn {

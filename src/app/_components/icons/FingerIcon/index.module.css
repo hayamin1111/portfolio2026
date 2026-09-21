@@ -1,0 +1,10 @@
+.finger {
+  width: 1.3em;
+  height: auto;
+
+  @media (hover: hover) and (pointer: fine) {
+    :where(a:hover) & {
+      color: var(--color-secondary);
+    }
+  }
+}
