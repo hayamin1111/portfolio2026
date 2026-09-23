@@ -13,7 +13,7 @@ export default function Gnav() {
   const navItems = [
     { href: "/", label: "トップページへ" },
     { href: "/about", label: "Hayakawaを知る" },
-    { href: "/skills", label: "Skills" },
+    // { href: "/skills", label: "Skills" },
     { href: "/works", label: "個人制作を見る" },
   ];
 

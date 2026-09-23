@@ -17,7 +17,8 @@ export default async function Page() {
 
   return (
     <>
-      <Hero title="Works" subTitle="個人制作を見る" />
+      <DecoHeaeder>About</DecoHeaeder>
+      <Hero title="個人制作を見る" />
 
       <section>
         <h2>アプリケーション</h2>
