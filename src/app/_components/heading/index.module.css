@@ -1,14 +1,16 @@
 .heading {
   gap: 0.6em;
   font-family: var(--font-mono);
-  font-size: var(--small-heading1);
-  font-weight: 400;
-  color: color-mix(in srgb, var(--color-neutral), transparent 40%);
+  font-weight: 700;
+  /* font-size: var(--small-heading1); */
+  color: color-mix(in srgb, var(--color-neutral), transparent 0%);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 
   &::before,
   &::after {
-    color: color-mix(in srgb, var(--color-neutral), transparent 60%);
+    font-weight: 300;
+    color: color-mix(in srgb, var(--color-neutral), transparent 70%);
     white-space: pre;
   }
 

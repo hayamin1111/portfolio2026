@@ -13,12 +13,12 @@
 
   /* フォント */
   --font-sans: "Outfit", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-mono: "JetBrains Mono", system-ui, sans-serif;
 
   /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
   /* --- 見出し --- */
   --fv: clamp(3.75rem, 3.846vw + 2.885rem, 7.5rem); /* 60~120px */
-  --hero: clamp(3.125rem, 3.205vw + 2.404rem, 6.25rem); /* 50~100px */
+  --hero: clamp(2.5rem, 2.564vw + 1.923rem, 5rem); /* 40~80px */
   --heading1: clamp(2rem, 2vw + 1.55rem, 4rem); /* 32~64px */
   --heading2: clamp(1.5rem, 0.25vw + 1.444rem, 1.75rem); /* 24~28px */
   --heading3: clamp(1.125rem, 0.125vw + 1.097rem, 1.25rem); /* 18~20px */
@@ -44,7 +44,7 @@
   --space-jump: clamp(1.25rem, 2.438vw + 0.702rem, 3.688rem); /* 20~60px */
 
   /* 色（daisyUIのthemeより：https://daisyui.com/ ）  */
-  --color-base-100: #fcfbf8; /* ページ背景 */
+  --color-base-100: #fdfcf9; /* ページ背景 */
   --color-base-200: #f5f1ec; /* カードや薄いセクション背景 */
   --color-base-300: #e6ded6; /* border・grid線 */
   --color-base-content: #1f2328; /* 本文・見出し */
@@ -115,7 +115,7 @@ body {
   letter-spacing: 0;
   word-break: normal;
   overflow-wrap: anywhere;
-  background: var(--color-base-100);
+  background: color-mix(in srgb, var(--color-base-200) 20%, var(--color-base-100));
 
   &.is-fixed {
     overflow: hidden;

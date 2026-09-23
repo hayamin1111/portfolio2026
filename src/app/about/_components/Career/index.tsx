@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import Heading from "@/app/_components/heading";
+import Heading from "@/app/_components/Heading";
 
 interface Career {
   startYYYY: string;

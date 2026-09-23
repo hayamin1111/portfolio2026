@@ -1,0 +1,7 @@
+.buttonArea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  justify-content: var(--button-area-justify-content, flex-start);
+  margin-block-start: var(--button-area-margin, var(--space-lg));
+}

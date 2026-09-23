@@ -1,13 +1,14 @@
-import styles from "@/app/page.module.css";
 import FirstView from "@/app/_components/FirstView";
 import Button from "@/app/_components/Button";
+import ButtonArea from "@/app/_components/ButtonArea";
 import ArrowIcon from "@/app/_components/icons/ArrowIcon";
 
 export default function Home() {
   return (
     <>
       <FirstView />
-      <div className={styles.buttons}>
+
+      <ButtonArea>
         <Button href="/about">
           Hayakawaを知る
           <ArrowIcon />
@@ -16,7 +17,7 @@ export default function Home() {
           個人制作を見る
           <ArrowIcon />
         </Button>
-      </div>
+      </ButtonArea>
     </>
   );
 }

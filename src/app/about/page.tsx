@@ -1,10 +1,10 @@
 import Hero from "@/app/_components/Hero";
-// import styles from "./page.module.css";
 import DecoHeaeder from "@/app/_components/Deco";
+import Button from "@/app/_components/Button";
+import ButtonArea from "@/app/_components/ButtonArea";
+import ArrowIcon from "@/app/_components/icons/ArrowIcon";
 import Profile from "./_components/Profile";
 import Career from "./_components/Career";
-// import Skills from "./_components/Skills";
-// import Values from "./_components/Values";
 
 export default function Page() {
   return (
@@ -13,7 +13,15 @@ export default function Page() {
       <Hero title="Hayakawaを知る" />
       <Profile />
       <Career />
-      {/* <Skills /> */}
+
+      <aside>
+        <ButtonArea>
+          <Button href="/works">
+            個人制作を見る
+            <ArrowIcon />
+          </Button>
+        </ButtonArea>
+      </aside>
     </>
   );
 }

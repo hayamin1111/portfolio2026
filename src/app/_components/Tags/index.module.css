@@ -1,0 +1,16 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xxs);
+  margin-block-start: var(--space-xs);
+}
+
+.tag {
+  padding: 0.4em 0.6em;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1;
+  color: var(--color-neutral);
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--color-base-300) 60%, var(--color-base-100));
+}

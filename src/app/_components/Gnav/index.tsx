@@ -4,6 +4,8 @@ import styles from "./index.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import FingerIcon from "@/app/_components/icons/FingerIcon";
+import Button from "@/app/_components/Button";
+import ExternalIcon from "@/app/_components/icons/ExternalIcon";
 import clsx from "clsx";
 
 const NAV_CLOSE_DURATION = 800;

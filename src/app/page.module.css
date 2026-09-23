@@ -1,6 +1,0 @@
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-block-start: var(--space-xs);
-}

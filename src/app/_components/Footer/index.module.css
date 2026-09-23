@@ -1,5 +1,5 @@
 .footer {
-  margin-block-start: var(--space-lg);
+  margin-block-start: var(--space-xl);
   background-color: var(--color-base-100);
   border: 1px solid var(--color-base-300);
 }
@@ -14,13 +14,18 @@
   margin-inline: auto;
 }
 .copyright {
-  color: color-mix(in srgb, var(--color-neutral) 40%, transparent 60%);
+  color: color-mix(in srgb, var(--color-neutral) 40%, transparent);
+}
+
+.links {
+  display: flex;
+  gap: 1em;
 }
 
 .link {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: color-mix(in srgb, var(--color-neutral) 50%, transparent 50%);
+  color: color-mix(in srgb, var(--color-neutral) 50%, transparent);
   transition: color 0.2s;
 
   @media (hover: hover) and (pointer: fine) {

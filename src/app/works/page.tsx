@@ -1,5 +1,10 @@
 import Hero from "@/app/_components/Hero";
 import Card from "@/app/_components/Card";
+import DecoHeaeder from "@/app/_components/Deco";
+import Heading from "@/app/_components/Heading";
+import Button from "@/app/_components/Button";
+import ButtonArea from "@/app/_components/ButtonArea";
+import ArrowIcon from "@/app/_components/icons/ArrowIcon";
 import { getWorks } from "@/app/_libs/microcms";
 import { WORKS_DATA_LIMIT, WORKS_LIST_FIELDS, WORKS_ORDERS } from "@/app/_constants";
 
@@ -17,23 +22,32 @@ export default async function Page() {
 
   return (
     <>
-      <DecoHeaeder>About</DecoHeaeder>
+      <DecoHeaeder>Works</DecoHeaeder>
       <Hero title="個人制作を見る" />
 
       <section>
-        <h2>アプリケーション</h2>
+        <Heading>アプリケーション</Heading>
         <Card contents={appWorks} />
       </section>
 
       <section>
-        <h2>Webサイト</h2>
+        <Heading>Webサイト</Heading>
         <Card contents={webWorks} />
       </section>
 
       <section>
-        <h2>試作</h2>
+        <Heading>試作</Heading>
         <Card contents={prototypeWorks} />
       </section>
+
+      <aside>
+        <ButtonArea>
+          <Button href="/about">
+            Hayakawaを知る
+            <ArrowIcon />
+          </Button>
+        </ButtonArea>
+      </aside>
     </>
   );
 }

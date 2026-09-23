@@ -5,5 +5,5 @@ interface Props {
 }
 
 export default function Heading({ children }: Props) {
-  return <h2 className={styles.heading}>&nbsp;&nbsp;{children}</h2>;
+  return <h2 className={styles.heading}>&nbsp;{children}</h2>;
 }

@@ -1,8 +1,0 @@
-.nav {
-  margin-block: var(--space-xs);
-}
-.list {
-  display: flex;
-  column-gap: var(--space-xs);
-  justify-content: flex-end;
-}

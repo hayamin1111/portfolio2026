@@ -11,6 +11,11 @@
   }
 }
 
+:where(.arrow).back {
+  transform: rotateY(180deg);
+  transform-origin: center;
+}
+
 .shaft {
   transform-origin: left center;
   transform-box: fill-box;
