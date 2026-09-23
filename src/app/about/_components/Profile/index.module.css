@@ -1,0 +1,66 @@
+.profile {
+  display: grid;
+  grid-template-columns: 1fr min(50%, 42em);
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.name {
+  margin-block-end: var(--space-xxs);
+  font-size: var(--heading1);
+  font-weight: 700;
+}
+
+.occupation {
+  margin-block-end: var(--space-xs);
+  font-size: var(--small-heading1);
+  font-weight: 700;
+}
+
+.introduction {
+  &:not(:first-child) {
+    margin-block-start: var(--space-xxs);
+  }
+}
+.hobbies {
+  margin-block-start: var(--space-xs);
+}
+
+.heading {
+  margin-block-end: var(--space-xxs);
+  font-size: var(--text-md);
+  font-weight: 700;
+}
+
+.hobby {
+  --dot-size: 0.25em;
+  --marker-y: calc(var(--line-height-md)/2 * 1em);
+
+  position: relative;
+  padding-left: 1em;
+  line-height: var(--line-height-md);
+
+  &:before {
+    position: absolute;
+    top: calc(var(--marker-y) - var(--dot-size) / 2);
+    left: 0;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    content: "";
+    background: var(--color-base-content);
+    border-radius: 50%;
+  }
+}
+
+.image {
+  order: -1;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+@media (width <= 768px) {
+  .profile {
+    grid-template-columns: 1fr;
+  }
+}

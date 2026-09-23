@@ -1,0 +1,29 @@
+.heading {
+  gap: 0.6em;
+  font-family: var(--font-mono);
+  font-size: var(--small-heading1);
+  font-weight: 400;
+  color: color-mix(in srgb, var(--color-neutral), transparent 40%);
+  text-transform: uppercase;
+
+  &::before,
+  &::after {
+    color: color-mix(in srgb, var(--color-neutral), transparent 60%);
+    white-space: pre;
+  }
+
+  &::before {
+    content: "/**\00000A\000020*";
+  }
+
+  &::after {
+    content: "\00000A\000020*/";
+  }
+  /* &::before {
+    width: 0.4em;
+    height: 0.6em;
+    content: "";
+    background: var(--color-accent);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+  } */
+}

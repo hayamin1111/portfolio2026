@@ -1,0 +1,21 @@
+.skills {
+  margin-block-start: var(--space-md);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min(360px, 100%), 1fr));
+  font-weight: 300;
+}
+
+.listItem {
+}
+
+.name {
+  display: block;
+  margin-block-end: var(--space-xxs);
+  font-weight: 700;
+}
+
+.detail {
+}
