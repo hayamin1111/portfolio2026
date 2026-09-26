@@ -37,9 +37,11 @@ export default function Card({ contents }: Props) {
                       {card.thumbnail && (
                         <Image
                           src={card.thumbnail.url}
-                          alt={card.thumbnail.alt ?? card.title}
+                          alt={card.thumbnail.alt ?? `${card.title}のサムネイル`}
                           width={card.thumbnail.width}
                           height={card.thumbnail.height}
+                          preload
+                          loading="eager"
                         />
                       )}
                     </dd>

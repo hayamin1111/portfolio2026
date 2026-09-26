@@ -1,9 +1,4 @@
-
-import type {
-  MicroCMSImage,
-  MicroCMSListContent,
-  MicroCMSListResponse,
-} from "microcms-js-sdk";
+import type { MicroCMSImage, MicroCMSListContent, MicroCMSListResponse } from "microcms-js-sdk";
 
 // works型定義
 export type WorkCategory = "web" | "app" | "prototype";
@@ -23,6 +18,8 @@ export type Work = MicroCMSListContent & {
   techs: Tech[];
   featured?: boolean;
   sortOrder?: number;
+  siteLink?: string;
+  ghLink?: string;
   link?: string;
 };
 

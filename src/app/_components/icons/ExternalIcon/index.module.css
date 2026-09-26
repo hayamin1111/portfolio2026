@@ -1,14 +1,14 @@
 .externalLink {
-  width: 1em;
-  height: 1em;
+  width: 0.9em;
+  height: 0.9em;
   margin-inline-start: 0.2em;
-  vertical-align: text-top;
-  color: color-mix(in srgb, var(--color-neutral) 50%, transparent);
+  vertical-align: baseline;
+  color: currentColor;
   transition: color 0.2s;
 
   @media (hover: hover) and (pointer: fine) {
     :where(a:hover) & {
-      color: var(--color-neutral);
+      color: color-mix(in srgb, currentColor 50%, #fff);
     }
   }
 }
