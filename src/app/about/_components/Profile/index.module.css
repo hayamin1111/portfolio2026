@@ -1,8 +1,9 @@
 .profile {
-  display: grid;
-  grid-template-columns: 1fr min(50%, 42em);
-  gap: var(--space-md);
-  align-items: start;
+  &::after {
+    clear: both;
+    display: block;
+    content: "";
+  }
 }
 
 .name {
@@ -35,8 +36,9 @@
 .hobby {
   --dot-size: 0.25em;
   --marker-y: calc(var(--line-height-md)/2 * 1em);
-
   position: relative;
+
+  display: flow-root;
   padding-left: 1em;
   line-height: var(--line-height-md);
 
@@ -53,14 +55,41 @@
 }
 
 .image {
-  order: -1;
-  width: 100%;
+  /* order: -1; */
+  float: left;
+  width: 33.33%;
+  height: auto;
   aspect-ratio: 3 / 4;
-  object-fit: cover;
+  padding-block-end: var(--space-xs);
+  padding-inline-end: var(--space-md);
+
+  > img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.caption {
+  display: inline-block;
+  margin-block-start: var(--space-xxs);
 }
 
 @media (width <= 768px) {
   .profile {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .image {
+    float: none;
+    order: 1;
+    width: 70%;
+    padding: 0;
+    margin-inline: auto;
   }
 }

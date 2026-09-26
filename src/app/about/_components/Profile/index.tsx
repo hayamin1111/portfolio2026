@@ -22,7 +22,7 @@ const data: Profile = {
     url: "/image/about.jpg",
     width: 300,
     height: 400,
-    alt: "meta questを楽しむhayakawaの写真",
+    alt: "meta questを楽しむhayakawaの画像",
   },
   occupation: "マークアップ & フロントエンドエンジニア",
   introduction: [
@@ -36,6 +36,10 @@ const data: Profile = {
       text: "Meta Questでのリズムゲームが好きで、楽しみながら体を動かせる運動習慣になっています。",
     },
     {
+      name: "ゲーム",
+      text: "アクション・RPGが好きです。特に好きなゲームは『Witcher3』『仁王3』『NieR:Automata』。",
+    },
+    {
       name: "ドライブ",
       text: "仕事でハイエースを運転する必要があったので、休日に練習して長年のペーパードライバーを卒業しました。今ではドライブが息抜きの時間になっています。",
     },
@@ -45,7 +49,21 @@ const data: Profile = {
 export default function Profile() {
   return (
     <section className={styles.profile}>
-      <div className={styles.profileContainer}>
+      <div className={styles.image}>
+        <Image
+          src={data.image.url}
+          width={data.image.width}
+          height={data.image.height}
+          alt={data.image.alt}
+          preload
+          loading="eager"
+          quality={70}
+        />
+        <small className={styles.caption}>
+          趣味のVRとアクションゲームをモチーフに、自身の写真からAIで生成
+        </small>
+      </div>
+      <div className={styles.textArea}>
         <h2 className={styles.name}>{data.name}</h2>
         <p className={styles.occupation}>{data.occupation}</p>
         {data.introduction.map((paragraph, index) => (
@@ -64,15 +82,6 @@ export default function Profile() {
           </ul>
         </section>
       </div>
-      <Image
-        src={data.image.url}
-        width={data.image.width}
-        height={data.image.height}
-        alt={data.image.alt}
-        className={styles.image}
-        loading="lazy"
-        quality={70}
-      />
     </section>
   );
 }

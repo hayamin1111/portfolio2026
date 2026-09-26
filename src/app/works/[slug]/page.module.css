@@ -48,10 +48,10 @@
   background: var(--color-base-200);
   border: 1px solid var(--color-base-200);
 
-  & img {
-    display: block;
+  > img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
