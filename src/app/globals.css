@@ -18,7 +18,7 @@
   /* フォントサイズ（ ジェネレータ：https://fluidtypography.com/ ） */
   /* --- 見出し --- */
   --fv: clamp(3.75rem, 3.846vw + 2.885rem, 7.5rem); /* 60~120px */
-  --hero: clamp(2.5rem, 2.564vw + 1.923rem, 5rem); /* 40~80px */
+  --hero: clamp(2.5rem, 1.282vw + 2.212rem, 3.75rem); /* 40~60px */
   --heading1: clamp(2rem, 2vw + 1.55rem, 4rem); /* 32~64px */
   --heading2: clamp(1.5rem, 0.25vw + 1.444rem, 1.75rem); /* 24~28px */
   --heading3: clamp(1.125rem, 0.125vw + 1.097rem, 1.25rem); /* 18~20px */

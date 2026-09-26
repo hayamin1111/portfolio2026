@@ -42,6 +42,7 @@ export default function Card({ contents }: Props) {
                           height={card.thumbnail.height}
                           preload
                           loading="eager"
+                          quality={70}
                         />
                       )}
                     </dd>

@@ -6,17 +6,18 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'placehold.jp', // 許可するドメイン
-        port: '',
-        pathname: '/**', // 全てのパスを許可
+        protocol: "https",
+        hostname: "placehold.jp", // 許可するドメイン
+        port: "",
+        pathname: "/**", // 全てのパスを許可
       },
       {
-        protocol: 'https',
-        hostname: 'images.microcms-assets.io', // 許可するドメイン
+        protocol: "https",
+        hostname: "images.microcms-assets.io", // 許可するドメイン
       },
     ],
-  }
+    qualities: [70, 75],
+  },
 };
 
 export default nextConfig;

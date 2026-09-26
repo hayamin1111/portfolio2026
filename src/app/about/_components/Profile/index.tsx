@@ -70,7 +70,8 @@ export default function Profile() {
         height={data.image.height}
         alt={data.image.alt}
         className={styles.image}
-        loading="eager"
+        loading="lazy"
+        quality={70}
       />
     </section>
   );

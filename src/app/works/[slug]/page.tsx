@@ -48,6 +48,7 @@ export default async function Page({ params }: Props) {
               height={data.thumbnail.height}
               preload
               loading="eager"
+              quality={70}
             />
           )}
         </figure>
@@ -73,7 +74,7 @@ export default async function Page({ params }: Props) {
               )}
               {data.ghLink && (
                 <Button href={data.ghLink} external>
-                  GitHubで見る
+                  GitHubで詳細を見る
                 </Button>
               )}
             </ButtonArea>
