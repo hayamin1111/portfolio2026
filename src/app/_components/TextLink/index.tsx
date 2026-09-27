@@ -4,12 +4,12 @@ import styles from "./index.module.css";
 
 interface Props {
   href: string;
+  className?: string;
   external?: boolean;
-  cta?: boolean;
   children: React.ReactNode;
 }
 
-export default function TextLink({ href, external = false, cta = false, children }: Props) {
+export default function TextLink({ href, className, external = false, children }: Props) {
   return (
     <>
       {external ? (
@@ -17,13 +17,13 @@ export default function TextLink({ href, external = false, cta = false, children
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${styles.textLink} ${cta && styles.cta}`}
+          className={[styles.textLink, className].filter(Boolean).join(" ")}
         >
           {children}
           <ExternalIcon />
         </a>
       ) : (
-        <Link href={href} className={`${styles.textLink} ${cta && styles.cta}`}>
+        <Link href={href} className={`${styles.textLink}`}>
           {children}
         </Link>
       )}

@@ -1,10 +1,10 @@
 .textLink {
-  color: var(--color-primary);
+  color: var(--text-link-color, --color-primary);
   transition: color 0.2s;
 
   & > svg {
     flex-shrink: 0;
-    color: var(--color-accent);
+    color: currentColor;
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -12,27 +12,7 @@
       color: var(--color-secondary);
 
       > svg {
-        color: var(--color-secondary);
-      }
-    }
-  }
-}
-
-.cta {
-  color: var(--color-info-content);
-
-  & > svg {
-    color: var(--color-primary-content);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      color: var(--color-info);
-      background-color: var(--color-info-content);
-      border-color: var(--color-base-content);
-
-      > svg {
-        color: var(--color-info);
+        color: currentColor;
       }
     }
   }

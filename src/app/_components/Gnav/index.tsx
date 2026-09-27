@@ -5,8 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import type { CSSProperties } from "react";
 import FingerIcon from "@/app/_components/icons/FingerIcon";
-import Button from "@/app/_components/Button";
-import ExternalIcon from "@/app/_components/icons/ExternalIcon";
+import TextLink from "@/app/_components/TextLink";
 import clsx from "clsx";
 
 const NAV_CLOSE_DURATION = 800;
@@ -133,7 +132,15 @@ export default function Gnav() {
             );
           })}
         </ul>
-        <div className={styles.animation}></div>
+        <div className={styles.externalLinks}>
+          <TextLink href="https://github.com/hayamin1111" className={styles.externalLink} external>
+            GitHub
+          </TextLink>
+          <TextLink href="https://ehykw.com/blog/" className={styles.externalLink} external>
+            ブログ
+          </TextLink>
+        </div>
+        <div className={styles.overlay}></div>
       </nav>
     </>
   );
