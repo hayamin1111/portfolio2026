@@ -50,8 +50,9 @@
   height: 100dvh;
   padding: var(--space-md) var(--space-md) var(--space-xs);
   overflow: clip;
+  font-family: var(--font-sans);
   font-size: calc(var(--text-xl) * 1.6);
-  font-weight: 900;
+  font-weight: 700;
   color: var(--color-base-100);
   pointer-events: none;
 
