@@ -1,5 +1,5 @@
 .textLink {
-  color: var(--text-link-color, --color-primary);
+  color: var(--text-link-color, var(--color-primary));
   transition: color 0.2s;
 
   & > svg {

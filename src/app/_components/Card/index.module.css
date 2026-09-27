@@ -5,30 +5,23 @@
   margin-block: var(--space-xs) var(--space-md);
 }
 
-.card {
-  min-width: 0;
-}
-
-.link {
-  display: block;
-  height: 100%;
-  color: inherit;
-  text-decoration: none;
-}
-
 .content {
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin: 0;
   background: var(--color-base-100);
   border: 1px solid var(--color-base-200);
   transition: border-color 0.2s ease;
-}
 
-.link:hover .content,
-.link:focus-visible .content {
-  border-color: var(--color-secondary);
+  @media (hover: hover) and (pointer: fine) {
+    :where(.link:hover) & {
+      border-color: var(--color-secondary);
+    }
+  }
+
+  :where(.link:focus-visible) & {
+    border-color: var(--color-secondary);
+  }
 }
 
 .detail {
