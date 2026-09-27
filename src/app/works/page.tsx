@@ -8,6 +8,9 @@ import ArrowIcon from "@/app/_components/icons/ArrowIcon";
 import { getWorks } from "@/app/_libs/microcms";
 import { WORKS_DATA_LIMIT, WORKS_LIST_FIELDS, WORKS_ORDERS } from "@/app/_constants";
 
+// 生成から60秒経過後のアクセスで、ページを再生成する
+export const revalidate = 180;
+
 export default async function Page() {
   const worksData = await getWorks({
     limit: WORKS_DATA_LIMIT,
