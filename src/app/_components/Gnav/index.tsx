@@ -3,6 +3,7 @@
 import styles from "./index.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import type { CSSProperties } from "react";
 import FingerIcon from "@/app/_components/icons/FingerIcon";
 import Button from "@/app/_components/Button";
 import ExternalIcon from "@/app/_components/icons/ExternalIcon";
@@ -10,12 +11,15 @@ import clsx from "clsx";
 
 const NAV_CLOSE_DURATION = 800;
 
+type ItemStyle = CSSProperties & {
+  "--item-index": number;
+};
+
 export default function Gnav() {
   // リンク先
   const navItems = [
     { href: "/", label: "トップページへ" },
     { href: "/about", label: "Hayakawaを知る" },
-    // { href: "/skills", label: "Skills" },
     { href: "/works", label: "個人制作を見る" },
   ];
 
@@ -91,14 +95,14 @@ export default function Gnav() {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
-          width="40"
-          height="36"
+          width="50"
+          height="50"
           viewBox="0 0 40 36"
           className={styles.lines}
         >
-          <rect x="0" y="0" width="40" height="4" rx="1" />
-          <rect x="0" y="9" width="40" height="4" rx="1" />
-          <rect x="0" y="18" width="40" height="4" rx="1" />
+          <rect x="0" y="4" width="40" height="4" rx="1" />
+          <rect x="0" y="16" width="40" height="4" rx="1" />
+          <rect x="0" y="28" width="40" height="4" rx="1" />
         </svg>
       </button>
 
@@ -112,16 +116,22 @@ export default function Gnav() {
         aria-hidden={!showNav}
       >
         <ul className={styles.list}>
-          {navItems.map((item) => (
-            <li key={item.href} className={styles.listItem}>
-              <Link href={item.href} onClick={closeNav} className={styles.link}>
-                <span className={styles.linkIcon}>
-                  <FingerIcon />
-                </span>
-                <span className={styles.linkText}>{item.label}</span>
-              </Link>
-            </li>
-          ))}
+          {navItems.map((item, index) => {
+            // CSSで「何番目の項目か」を参照させるため
+            const itemStyle: ItemStyle = {
+              "--item-index": index,
+            };
+            return (
+              <li key={item.href} className={styles.listItem} style={itemStyle}>
+                <Link href={item.href} onClick={closeNav} className={styles.link}>
+                  <span className={styles.linkIcon}>
+                    <FingerIcon />
+                  </span>
+                  <span className={styles.linkText}>{item.label}</span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
         <div className={styles.animation}></div>
       </nav>
