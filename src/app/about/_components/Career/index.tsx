@@ -8,7 +8,7 @@ interface Career {
   endMM?: string;
   company: string;
   occupation: string;
-  detail: string;
+  details: string[];
 }
 
 const data: Career[] = [
@@ -19,8 +19,9 @@ const data: Career[] = [
     endMM: "2",
     company: "Web制作会社",
     occupation: "HTMLコーダー / Webデザイナー",
-    detail:
+    details: [
       "静的サイト制作やWebデザイン、CMSの更新・運用を中心に担当。マークアップやスタイリング、顧客折衝や進行管理、見積もり作成など広く経験を積みました。",
+    ],
   },
   {
     startYYYY: "2024",
@@ -29,16 +30,19 @@ const data: Career[] = [
     endMM: "9",
     company: "Web制作会社",
     occupation: "マークアップ / フロントエンド エンジニア",
-    detail:
+    details: [
       "マークアップだけでなくCMS構築やTypeScriptを用いたUI実装・API連携も担当。Webシステムのフロントエンド開発にも携わりました。",
+    ],
   },
   {
     startYYYY: "2025",
     startMM: "9",
     company: "造形美術会社",
-    occupation: "制作担当",
-    detail:
-      "イベント等で使用される立体造形の制作及び進行管理や営業（サブ）も担当。プライベートではWebのキャッチアップを並行しており、Web制作への復帰に向けて学習を続けています。",
+    occupation: "製作担当",
+    details: [
+      "イベント等で使用される立体造形の製作を中心に、新規開拓営業、見積もり作成、顧客折衝、図面・仕様提案、納品・施工まで担当。顧客の要望・予算・使用条件を踏まえ、製作方法や材料を調整した提案を行い、受注後の継続依頼にもつなげました。",
+      "またプライベートではReact / Next.jsを用いた個人開発など、Web制作への復帰に向けたキャッチアップを継続しています。",
+    ],
   },
 ];
 
@@ -65,7 +69,11 @@ export default function Career() {
             <p className={styles.company}>{career.company}</p>
             <div className={styles.content}>
               <span className={styles.occupation}>{career.occupation}</span>
-              <p className={styles.detail}>{career.detail}</p>
+              {career.details.map((paragraph, index) => (
+                <p key={index} className={styles.detail}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </li>
         ))}
