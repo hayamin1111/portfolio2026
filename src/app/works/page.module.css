@@ -1,0 +1,5 @@
+.worksWrapper {
+  &:not(:first-child) {
+    margin-block-start: var(--space-md);
+  }
+}

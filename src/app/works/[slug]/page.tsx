@@ -69,7 +69,9 @@ export default async function Page({ params }: Props) {
             <ButtonArea className={styles.detailLinks}>
               {data.siteLink && (
                 <Button href={data.siteLink} external cta>
-                  アプリを見る
+                  {data.category.includes("app") && "アプリを見る"}
+                  {data.category.includes("web") && "Webサイトを見る"}
+                  {data.category.includes("prototype") && "試作を見る"}
                 </Button>
               )}
               {data.ghLink && (

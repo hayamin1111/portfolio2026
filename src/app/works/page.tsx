@@ -1,3 +1,4 @@
+import styles from "./page.module.css";
 import Hero from "@/app/_components/Hero";
 import Card from "@/app/_components/Card";
 import DecoHeaeder from "@/app/_components/Deco";
@@ -19,8 +20,8 @@ export default async function Page() {
   });
 
   //section分け
-  const webWorks = worksData.contents.filter((work) => work.category.includes("web"));
   const appWorks = worksData.contents.filter((work) => work.category.includes("app"));
+  const webWorks = worksData.contents.filter((work) => work.category.includes("web"));
   const prototypeWorks = worksData.contents.filter((work) => work.category.includes("prototype"));
 
   return (
@@ -28,17 +29,17 @@ export default async function Page() {
       <DecoHeaeder>Works</DecoHeaeder>
       <Hero title="個人制作を見る" />
 
-      <section>
+      <section className={styles.worksWrapper}>
         <Heading>アプリケーション</Heading>
         <Card contents={appWorks} />
       </section>
 
-      <section>
+      <section className={styles.worksWrapper}>
         <Heading>Webサイト</Heading>
         <Card contents={webWorks} />
       </section>
 
-      <section>
+      <section className={styles.worksWrapper}>
         <Heading>試作</Heading>
         <Card contents={prototypeWorks} />
       </section>
