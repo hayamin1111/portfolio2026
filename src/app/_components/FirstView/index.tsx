@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import DecoHeaeder from "@/app/_components/Deco";
+import Button from "@/app/_components/Button";
+import ButtonArea from "@/app/_components/ButtonArea";
+import ArrowIcon from "@/app/_components/icons/ArrowIcon";
 import styles from "./index.module.css";
 
 type AnimationMode = "checking" | "play" | "skip";
@@ -93,68 +96,89 @@ export default function FirstView() {
 
   // HTMLレンダリング
   return (
-    <section className={styles.fv}>
-      <DecoHeaeder>Introduction</DecoHeaeder>
-      {shouldRenderTitle && (
-        <h1 className={styles.title}>
-          {chars.map((char, index) => {
-            // どのphase（文字）を表示するかを取得
-            const currentPhase = isSkipping ? 2 : charPhases[index];
+    <>
+      <section className={styles.fv}>
+        <DecoHeaeder>Introduction</DecoHeaeder>
+        {shouldRenderTitle && (
+          <h1 className={styles.title}>
+            {chars.map((char, index) => {
+              // どのphase（文字）を表示するかを取得
+              const currentPhase = isSkipping ? 2 : charPhases[index];
 
-            //リードの表示用
-            const isLastChar = index === chars.length - 1; //全文字が最終phaseになったか
-            const isFinalPhase = currentPhase === 2; //最後の文字か
+              //リードの表示用
+              const isLastChar = index === chars.length - 1; //全文字が最終phaseになったか
+              const isFinalPhase = currentPhase === 2; //最後の文字か
 
-            return (
-              <span className={styles.char} key={index}>
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={currentPhase}
-                    /* 初回訪問のみアニメーション */
-                    initial={isPlaying ? { opacity: 0, y: 10, filter: "blur(4px)" } : false}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
-                    transition={{ duration: 0.09, ease: [0.87, 0.05, 0.02, 0.97] }}
-                    onAnimationComplete={() => {
-                      if (isLastChar && isFinalPhase) {
-                        setIsPortfolioReady(true);
-                      }
-                    }}
-                  >
-                    {char[currentPhase]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-            );
-          })}
-          {/* wait: 古い要素のexitが終わってから新しい要素をenterさせる */}
-          <AnimatePresence mode="wait">
-            {shouldRenderPortfolio && (
-              <motion.span
-                className={styles.subTitle}
-                initial={isPlaying ? { opacity: 0, y: 4, filter: "blur(2px)" } : false}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.5, ease: [0.87, 0.05, 0.02, 0.97] }}
-                onAnimationComplete={() => setIsLeadReady(true)}
-              >
-                Markup & <em className={styles.textEmphasis}>Frontend</em>
-              </motion.span>
-            )}
-          </AnimatePresence>
-        </h1>
-      )}
+              return (
+                <span className={styles.char} key={index}>
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={currentPhase}
+                      /* 初回訪問のみアニメーション */
+                      initial={isPlaying ? { opacity: 0, y: 10, filter: "blur(4px)" } : false}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+                      transition={{ duration: 0.09, ease: [0.87, 0.05, 0.02, 0.97] }}
+                      onAnimationComplete={() => {
+                        if (isLastChar && isFinalPhase) {
+                          setIsPortfolioReady(true);
+                        }
+                      }}
+                    >
+                      {char[currentPhase]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              );
+            })}
+            {/* wait: 古い要素のexitが終わってから新しい要素をenterさせる */}
+            <AnimatePresence mode="wait">
+              {shouldRenderPortfolio && (
+                <motion.span
+                  className={styles.subTitle}
+                  initial={isPlaying ? { opacity: 0, y: 4, filter: "blur(2px)" } : false}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.5, ease: [0.87, 0.05, 0.02, 0.97] }}
+                  onAnimationComplete={() => setIsLeadReady(true)}
+                >
+                  Markup & <em className={styles.textEmphasis}>Frontend</em>
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </h1>
+        )}
+        {shouldRenderLead && (
+          <motion.p
+            className={styles.lead}
+            initial={isPlaying ? { opacity: 0, y: 6, filter: "blur(4px)" } : false}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.3, ease: [0.87, 0.05, 0.02, 0.97] }}
+          >
+            拡張性・更新性・デザイン再現性を重視したマークアップ・スタイリングを主軸に、TypeScriptを用いたAPI連携などのフロントエンド実装も経験してきました。
+            <br />
+            これまでの制作経験を活かして安定した実装に貢献しながら、JavaScriptフレームワークを用いたフロントエンド領域へも対応範囲を広げています。
+          </motion.p>
+        )}
+      </section>
+
       {shouldRenderLead && (
-        <motion.p
-          className={styles.lead}
-          initial={isPlaying ? { opacity: 0, y: 8, filter: "blur(4px)" } : false}
+        <motion.div
+          initial={isPlaying ? { opacity: 0, y: 6, filter: "blur(4px)" } : false}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.7, ease: [0.87, 0.05, 0.02, 0.97] }}
+          transition={{ duration: 0.8, ease: [0.87, 0.05, 0.02, 0.97] }}
         >
-          拡張性・更新性・デザイン再現性を重視したマークアップ・スタイリングを主軸に、TypeScriptを用いたAPI連携などのフロントエンド実装も経験してきました。
-          <br />
-          これまでの制作経験を活かして安定した実装に貢献しながら、JavaScriptフレームワークを用いたフロントエンド領域へも対応範囲を広げています。
-        </motion.p>
+          <ButtonArea>
+            <Button href="/about">
+              Hayakawaを知る
+              <ArrowIcon />
+            </Button>
+            <Button href="/works">
+              個人制作を見る
+              <ArrowIcon />
+            </Button>
+          </ButtonArea>
+        </motion.div>
       )}
-    </section>
+    </>
   );
 }
