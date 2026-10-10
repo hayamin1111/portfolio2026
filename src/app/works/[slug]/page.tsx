@@ -39,8 +39,10 @@ export default async function Page({ params }: Props) {
             </TextLink>
           )}
         </div>
-        <figure className={styles.mv}>
-          {data.thumbnail && (
+
+        {/* サムネ未登録なら表示なし */}
+        {data.thumbnail && (
+          <figure className={styles.mv}>
             <Image
               src={data.thumbnail.url}
               alt={`${data.title}のスクリーンショット`}
@@ -50,8 +52,8 @@ export default async function Page({ params }: Props) {
               loading="eager"
               quality={70}
             />
-          )}
-        </figure>
+          </figure>
+        )}
 
         {/* 使用技術 */}
         {data.techs && <Tags items={data.techs} />}
