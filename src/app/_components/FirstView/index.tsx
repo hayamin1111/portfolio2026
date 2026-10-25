@@ -154,9 +154,9 @@ export default function FirstView() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.3, ease: [0.87, 0.05, 0.02, 0.97] }}
           >
-            拡張性・更新性・デザイン再現性を重視したマークアップ・スタイリングを主軸に、TypeScriptを用いたAPI連携などのフロントエンド実装も経験してきました。
+            拡張性・デザイン再現性を重視したマークアップ・スタイリングを主軸に、TypeScriptを用いたAPI連携などのフロントエンド実装も経験してきました。
             <br />
-            これまでの制作経験を活かして安定した実装に貢献しながら、JavaScriptフレームワークを用いたフロントエンド領域へも対応範囲を広げています。
+            現在は個人開発を通して、JavaScriptフレームワークを用いたフロントエンド開発への理解を深めています。
           </motion.p>
         )}
       </section>
